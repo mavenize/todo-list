@@ -1,0 +1,1687 @@
+{
+  "format": "todo4vcode-shared-tasks",
+  "version": "1.0.0",
+  "tasks": [
+    {
+      "id": "todoui-t00",
+      "text": "T00 · Plan, CLAUDE.md and task backlog",
+      "description": "Goal: Create plan.md, CLAUDE.md and the todo4vcode backlog from the approved plan.\n\nDefinition of Done:\n- plan.md written and approved\n- CLAUDE.md explains workflow and links\n- All tasks T00–T23 in shared-tasks.json with DoD, tags, code links, commit message\n- False-positive README scan task removed\n\nCommit: docs: add project plan, CLAUDE.md and task backlog\n\nCode links: line ranges are estimates until the task is done.",
+      "tags": [
+        "stage-0-planning",
+        "docs",
+        "T00",
+        "plan.md:1",
+        "CLAUDE.md:1",
+        ".todo4vcode/shared-tasks.json:1"
+      ],
+      "priority": "Must",
+      "status": "Done",
+      "completed": true,
+      "createdAt": 1794386838186,
+      "order": 1000,
+      "subtasks": [
+        {
+          "id": "t00-dod1",
+          "text": "plan.md written and approved",
+          "completed": true
+        },
+        {
+          "id": "t00-dod2",
+          "text": "CLAUDE.md explains workflow and links",
+          "completed": true
+        },
+        {
+          "id": "t00-dod3",
+          "text": "All tasks T00–T23 in shared-tasks.json with DoD, tags, code links, commit message",
+          "completed": true
+        },
+        {
+          "id": "t00-dod4",
+          "text": "False-positive README scan task removed",
+          "completed": true
+        }
+      ]
+    },
+    {
+      "id": "todoui-t01",
+      "text": "T01 · Set up npm + webpack with dev server",
+      "description": "Goal: npm init; install webpack, webpack-cli, webpack-dev-server, html-webpack-plugin, style-loader, css-loader; add dev/build scripts.\n\nDefinition of Done:\n- package.json with \"dev\" and \"build\" scripts\n- webpack.config.js: entry src/index.js, output dist/ (clean), HtmlWebpackPlugin(src/template.html), CSS loaders, devtool per mode\n- src/index.js imports a CSS file and logs boot\n- npm run dev serves the page with live reload\n- npm run build outputs dist/index.html + bundle\n- dist/ and node_modules/ ignored by git\n- npm run build succeeds\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: chore: set up webpack build with dev server and html template\n\nCode links: line ranges are estimates until the task is done.",
+      "tags": [
+        "stage-1-setup",
+        "chore",
+        "T01",
+        "package.json:1-30",
+        "webpack.config.js:1-40",
+        "src/index.js:1-10",
+        "src/template.html:1-20"
+      ],
+      "priority": "Must",
+      "status": "Todo",
+      "completed": false,
+      "createdAt": 1794386838187,
+      "order": 2000,
+      "subtasks": [
+        {
+          "id": "t01-dod1",
+          "text": "package.json with \"dev\" and \"build\" scripts",
+          "completed": false
+        },
+        {
+          "id": "t01-dod2",
+          "text": "webpack.config.js: entry src/index.js, output dist/ (clean), HtmlWebpackPlugin(src/template.html), CSS loaders, devtool per mode",
+          "completed": false
+        },
+        {
+          "id": "t01-dod3",
+          "text": "src/index.js imports a CSS file and logs boot",
+          "completed": false
+        },
+        {
+          "id": "t01-dod4",
+          "text": "npm run dev serves the page with live reload",
+          "completed": false
+        },
+        {
+          "id": "t01-dod5",
+          "text": "npm run build outputs dist/index.html + bundle",
+          "completed": false
+        },
+        {
+          "id": "t01-dod6",
+          "text": "dist/ and node_modules/ ignored by git",
+          "completed": false
+        },
+        {
+          "id": "t01-dod7",
+          "text": "npm run build succeeds",
+          "completed": false
+        },
+        {
+          "id": "t01-dod8",
+          "text": "Code-link tags updated to real line ranges",
+          "completed": false
+        },
+        {
+          "id": "t01-dod9",
+          "text": "Commit message proposed to user",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "todoui-t02",
+      "text": "T02 · Add ESLint + Prettier",
+      "description": "Goal: Flat-config ESLint (browser + node globals) with eslint-config-prettier; Prettier config; lint/format scripts.\n\nDefinition of Done:\n- eslint.config.js (flat) with recommended rules + prettier compat\n- .prettierrc and .prettierignore (dist, node_modules)\n- Scripts: lint, lint:fix, format\n- Existing files formatted and lint clean\n- npm run lint passes\n- npm run build succeeds\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: chore: add ESLint and Prettier configuration\n\nCode links: line ranges are estimates until the task is done.",
+      "tags": [
+        "stage-1-setup",
+        "chore",
+        "T02",
+        "eslint.config.js:1-30",
+        ".prettierrc:1-10",
+        "package.json:1-40"
+      ],
+      "priority": "Must",
+      "status": "Todo",
+      "completed": false,
+      "createdAt": 1794386838188,
+      "order": 3000,
+      "subtasks": [
+        {
+          "id": "t02-dod1",
+          "text": "eslint.config.js (flat) with recommended rules + prettier compat",
+          "completed": false
+        },
+        {
+          "id": "t02-dod2",
+          "text": ".prettierrc and .prettierignore (dist, node_modules)",
+          "completed": false
+        },
+        {
+          "id": "t02-dod3",
+          "text": "Scripts: lint, lint:fix, format",
+          "completed": false
+        },
+        {
+          "id": "t02-dod4",
+          "text": "Existing files formatted and lint clean",
+          "completed": false
+        },
+        {
+          "id": "t02-dod5",
+          "text": "npm run lint passes",
+          "completed": false
+        },
+        {
+          "id": "t02-dod6",
+          "text": "npm run build succeeds",
+          "completed": false
+        },
+        {
+          "id": "t02-dod7",
+          "text": "Code-link tags updated to real line ranges",
+          "completed": false
+        },
+        {
+          "id": "t02-dod8",
+          "text": "Commit message proposed to user",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "todoui-t03",
+      "text": "T03 · Configure Jest with Babel",
+      "description": "Goal: Install jest, babel-jest, @babel/core, @babel/preset-env; ESM source works in tests.\n\nDefinition of Done:\n- babel.config.js with preset-env targeting current node for tests\n- jest config (testEnvironment node, roots tests/)\n- \"test\" and \"test:watch\" scripts\n- Sanity test passes\n- ESLint knows Jest globals in tests/\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: chore: configure Jest with Babel for unit tests\n\nCode links: line ranges are estimates until the task is done.",
+      "tags": [
+        "stage-1-setup",
+        "chore",
+        "T03",
+        "babel.config.js:1-10",
+        "package.json:1-50",
+        "tests/sanity.test.js:1-5"
+      ],
+      "priority": "Must",
+      "status": "Todo",
+      "completed": false,
+      "createdAt": 1794386838189,
+      "order": 4000,
+      "subtasks": [
+        {
+          "id": "t03-dod1",
+          "text": "babel.config.js with preset-env targeting current node for tests",
+          "completed": false
+        },
+        {
+          "id": "t03-dod2",
+          "text": "jest config (testEnvironment node, roots tests/)",
+          "completed": false
+        },
+        {
+          "id": "t03-dod3",
+          "text": "\"test\" and \"test:watch\" scripts",
+          "completed": false
+        },
+        {
+          "id": "t03-dod4",
+          "text": "Sanity test passes",
+          "completed": false
+        },
+        {
+          "id": "t03-dod5",
+          "text": "ESLint knows Jest globals in tests/",
+          "completed": false
+        },
+        {
+          "id": "t03-dod6",
+          "text": "npm run lint passes",
+          "completed": false
+        },
+        {
+          "id": "t03-dod7",
+          "text": "npm test passes",
+          "completed": false
+        },
+        {
+          "id": "t03-dod8",
+          "text": "npm run build succeeds",
+          "completed": false
+        },
+        {
+          "id": "t03-dod9",
+          "text": "No DOM access in models/core/storage/utils",
+          "completed": false
+        },
+        {
+          "id": "t03-dod10",
+          "text": "Code-link tags updated to real line ranges",
+          "completed": false
+        },
+        {
+          "id": "t03-dod11",
+          "text": "Commit message proposed to user",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "todoui-t04",
+      "text": "T04 · Utils: constants, id, dateFormat",
+      "description": "Goal: Create folder skeleton and shared helpers; install date-fns.\n\nDefinition of Done:\n- src/js/{models,core,storage,ui/components,utils} folders exist\n- constants.js: PRIORITIES, SMART_LISTS, STORAGE_KEY, PROJECT_COLORS, DEFAULT_PROJECT\n- id.js: createId() via crypto.randomUUID\n- dateFormat.js: formatDueLabel (Today/Tomorrow/\"Tue, 1 May\"), isDueToday, isOverdue\n- Unit tests for dateFormat and id\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: feat(utils): add constants, id generator and date helpers\n\nCode links: line ranges are estimates until the task is done.",
+      "tags": [
+        "stage-1-setup",
+        "feature",
+        "T04",
+        "src/js/utils/constants.js:1-40",
+        "src/js/utils/id.js:1-10",
+        "src/js/utils/dateFormat.js:1-50",
+        "tests/utils/dateFormat.test.js:1-60"
+      ],
+      "priority": "Must",
+      "status": "Todo",
+      "completed": false,
+      "createdAt": 1794386838190,
+      "order": 5000,
+      "subtasks": [
+        {
+          "id": "t04-dod1",
+          "text": "src/js/{models,core,storage,ui/components,utils} folders exist",
+          "completed": false
+        },
+        {
+          "id": "t04-dod2",
+          "text": "constants.js: PRIORITIES, SMART_LISTS, STORAGE_KEY, PROJECT_COLORS, DEFAULT_PROJECT",
+          "completed": false
+        },
+        {
+          "id": "t04-dod3",
+          "text": "id.js: createId() via crypto.randomUUID",
+          "completed": false
+        },
+        {
+          "id": "t04-dod4",
+          "text": "dateFormat.js: formatDueLabel (Today/Tomorrow/\"Tue, 1 May\"), isDueToday, isOverdue",
+          "completed": false
+        },
+        {
+          "id": "t04-dod5",
+          "text": "Unit tests for dateFormat and id",
+          "completed": false
+        },
+        {
+          "id": "t04-dod6",
+          "text": "npm run lint passes",
+          "completed": false
+        },
+        {
+          "id": "t04-dod7",
+          "text": "npm test passes",
+          "completed": false
+        },
+        {
+          "id": "t04-dod8",
+          "text": "npm run build succeeds",
+          "completed": false
+        },
+        {
+          "id": "t04-dod9",
+          "text": "No DOM access in models/core/storage/utils",
+          "completed": false
+        },
+        {
+          "id": "t04-dod10",
+          "text": "Code-link tags updated to real line ranges",
+          "completed": false
+        },
+        {
+          "id": "t04-dod11",
+          "text": "Commit message proposed to user",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "todoui-t05",
+      "text": "T05 · Todo and ChecklistItem classes",
+      "description": "Goal: Pure data classes with behaviour and JSON round-trip.\n\nDefinition of Done:\n- ChecklistItem: id, text, done, toggle(), toJSON/fromJSON\n- Todo: title, description, dueDate, priority, notes, checklist, completed, important, createdAt\n- Todo methods: update, toggleComplete, toggleImportant, setPriority (validates), add/toggle/removeChecklistItem\n- Todo.fromJSON(todo.toJSON()) restores working methods\n- Unit tests cover all methods + invalid priority\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: feat(models): add Todo and ChecklistItem classes\n\nCode links: line ranges are estimates until the task is done.",
+      "tags": [
+        "stage-2-models",
+        "feature",
+        "T05",
+        "src/js/models/ChecklistItem.js:1-30",
+        "src/js/models/Todo.js:1-120",
+        "tests/models/Todo.test.js:1-120"
+      ],
+      "priority": "Must",
+      "status": "Todo",
+      "completed": false,
+      "createdAt": 1794386838191,
+      "order": 6000,
+      "subtasks": [
+        {
+          "id": "t05-dod1",
+          "text": "ChecklistItem: id, text, done, toggle(), toJSON/fromJSON",
+          "completed": false
+        },
+        {
+          "id": "t05-dod2",
+          "text": "Todo: title, description, dueDate, priority, notes, checklist, completed, important, createdAt",
+          "completed": false
+        },
+        {
+          "id": "t05-dod3",
+          "text": "Todo methods: update, toggleComplete, toggleImportant, setPriority (validates), add/toggle/removeChecklistItem",
+          "completed": false
+        },
+        {
+          "id": "t05-dod4",
+          "text": "Todo.fromJSON(todo.toJSON()) restores working methods",
+          "completed": false
+        },
+        {
+          "id": "t05-dod5",
+          "text": "Unit tests cover all methods + invalid priority",
+          "completed": false
+        },
+        {
+          "id": "t05-dod6",
+          "text": "npm run lint passes",
+          "completed": false
+        },
+        {
+          "id": "t05-dod7",
+          "text": "npm test passes",
+          "completed": false
+        },
+        {
+          "id": "t05-dod8",
+          "text": "npm run build succeeds",
+          "completed": false
+        },
+        {
+          "id": "t05-dod9",
+          "text": "No DOM access in models/core/storage/utils",
+          "completed": false
+        },
+        {
+          "id": "t05-dod10",
+          "text": "Code-link tags updated to real line ranges",
+          "completed": false
+        },
+        {
+          "id": "t05-dod11",
+          "text": "Commit message proposed to user",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "todoui-t06",
+      "text": "T06 · Project class",
+      "description": "Goal: Project holds todos and serializes the subtree.\n\nDefinition of Done:\n- Project: id, name, color, isDefault, todos\n- Methods: addTodo, removeTodo, getTodo, rename (rejects empty)\n- toJSON/fromJSON rehydrates Todo instances\n- Unit tests\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: feat(models): add Project class\n\nCode links: line ranges are estimates until the task is done.",
+      "tags": [
+        "stage-2-models",
+        "feature",
+        "T06",
+        "src/js/models/Project.js:1-80",
+        "tests/models/Project.test.js:1-80"
+      ],
+      "priority": "Must",
+      "status": "Todo",
+      "completed": false,
+      "createdAt": 1794386838192,
+      "order": 7000,
+      "subtasks": [
+        {
+          "id": "t06-dod1",
+          "text": "Project: id, name, color, isDefault, todos",
+          "completed": false
+        },
+        {
+          "id": "t06-dod2",
+          "text": "Methods: addTodo, removeTodo, getTodo, rename (rejects empty)",
+          "completed": false
+        },
+        {
+          "id": "t06-dod3",
+          "text": "toJSON/fromJSON rehydrates Todo instances",
+          "completed": false
+        },
+        {
+          "id": "t06-dod4",
+          "text": "Unit tests",
+          "completed": false
+        },
+        {
+          "id": "t06-dod5",
+          "text": "npm run lint passes",
+          "completed": false
+        },
+        {
+          "id": "t06-dod6",
+          "text": "npm test passes",
+          "completed": false
+        },
+        {
+          "id": "t06-dod7",
+          "text": "npm run build succeeds",
+          "completed": false
+        },
+        {
+          "id": "t06-dod8",
+          "text": "No DOM access in models/core/storage/utils",
+          "completed": false
+        },
+        {
+          "id": "t06-dod9",
+          "text": "Code-link tags updated to real line ranges",
+          "completed": false
+        },
+        {
+          "id": "t06-dod10",
+          "text": "Commit message proposed to user",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "todoui-t07",
+      "text": "T07 · EventBus",
+      "description": "Goal: Minimal pub/sub to decouple logic from UI and storage.\n\nDefinition of Done:\n- EventBus class: on(event, fn) returns unsubscribe, off, emit(event, payload)\n- A throwing handler does not stop others\n- Unit tests\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: feat(core): add EventBus for logic/UI decoupling\n\nCode links: line ranges are estimates until the task is done.",
+      "tags": [
+        "stage-3-logic",
+        "feature",
+        "T07",
+        "src/js/core/EventBus.js:1-40",
+        "tests/core/EventBus.test.js:1-50"
+      ],
+      "priority": "Must",
+      "status": "Todo",
+      "completed": false,
+      "createdAt": 1794386838193,
+      "order": 8000,
+      "subtasks": [
+        {
+          "id": "t07-dod1",
+          "text": "EventBus class: on(event, fn) returns unsubscribe, off, emit(event, payload)",
+          "completed": false
+        },
+        {
+          "id": "t07-dod2",
+          "text": "A throwing handler does not stop others",
+          "completed": false
+        },
+        {
+          "id": "t07-dod3",
+          "text": "Unit tests",
+          "completed": false
+        },
+        {
+          "id": "t07-dod4",
+          "text": "npm run lint passes",
+          "completed": false
+        },
+        {
+          "id": "t07-dod5",
+          "text": "npm test passes",
+          "completed": false
+        },
+        {
+          "id": "t07-dod6",
+          "text": "npm run build succeeds",
+          "completed": false
+        },
+        {
+          "id": "t07-dod7",
+          "text": "No DOM access in models/core/storage/utils",
+          "completed": false
+        },
+        {
+          "id": "t07-dod8",
+          "text": "Code-link tags updated to real line ranges",
+          "completed": false
+        },
+        {
+          "id": "t07-dod9",
+          "text": "Commit message proposed to user",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "todoui-t08",
+      "text": "T08 · ProjectManager: projects and todos CRUD",
+      "description": "Goal: Single entry point for all state changes.\n\nDefinition of Done:\n- Always has a default Inbox project (created if missing, cannot be deleted)\n- createProject, renameProject, deleteProject (deletes its todos)\n- addTodo(projectId, data), updateTodo, deleteTodo, toggle helpers, moveTodo(todoId, toProjectId)\n- findTodo(todoId) → { project, todo }\n- Every mutation emits \"state:changed\"\n- toJSON / static fromJSON(data, bus)\n- Unit tests incl. emitted events\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: feat(core): add ProjectManager with project and todo CRUD\n\nCode links: line ranges are estimates until the task is done.",
+      "tags": [
+        "stage-3-logic",
+        "feature",
+        "T08",
+        "src/js/core/ProjectManager.js:1-160",
+        "tests/core/ProjectManager.test.js:1-160"
+      ],
+      "priority": "Must",
+      "status": "Todo",
+      "completed": false,
+      "createdAt": 1794386838194,
+      "order": 9000,
+      "subtasks": [
+        {
+          "id": "t08-dod1",
+          "text": "Always has a default Inbox project (created if missing, cannot be deleted)",
+          "completed": false
+        },
+        {
+          "id": "t08-dod2",
+          "text": "createProject, renameProject, deleteProject (deletes its todos)",
+          "completed": false
+        },
+        {
+          "id": "t08-dod3",
+          "text": "addTodo(projectId, data), updateTodo, deleteTodo, toggle helpers, moveTodo(todoId, toProjectId)",
+          "completed": false
+        },
+        {
+          "id": "t08-dod4",
+          "text": "findTodo(todoId) → { project, todo }",
+          "completed": false
+        },
+        {
+          "id": "t08-dod5",
+          "text": "Every mutation emits \"state:changed\"",
+          "completed": false
+        },
+        {
+          "id": "t08-dod6",
+          "text": "toJSON / static fromJSON(data, bus)",
+          "completed": false
+        },
+        {
+          "id": "t08-dod7",
+          "text": "Unit tests incl. emitted events",
+          "completed": false
+        },
+        {
+          "id": "t08-dod8",
+          "text": "npm run lint passes",
+          "completed": false
+        },
+        {
+          "id": "t08-dod9",
+          "text": "npm test passes",
+          "completed": false
+        },
+        {
+          "id": "t08-dod10",
+          "text": "npm run build succeeds",
+          "completed": false
+        },
+        {
+          "id": "t08-dod11",
+          "text": "No DOM access in models/core/storage/utils",
+          "completed": false
+        },
+        {
+          "id": "t08-dod12",
+          "text": "Code-link tags updated to real line ranges",
+          "completed": false
+        },
+        {
+          "id": "t08-dod13",
+          "text": "Commit message proposed to user",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "todoui-t09",
+      "text": "T09 · TodoQuery: smart lists, search, counts",
+      "description": "Goal: Read-only queries used by the UI.\n\nDefinition of Done:\n- smartList(type): overview (open), today, important, scheduled (sorted by date), done\n- search(query): case-insensitive on title/description/notes across projects\n- counts(): badge numbers per smart list and per project (open todos)\n- Results include project reference for display\n- Unit tests with fixed \"today\"\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: feat(core): add smart list, search and count queries\n\nCode links: line ranges are estimates until the task is done.",
+      "tags": [
+        "stage-3-logic",
+        "feature",
+        "T09",
+        "src/js/core/TodoQuery.js:1-90",
+        "tests/core/TodoQuery.test.js:1-120"
+      ],
+      "priority": "Must",
+      "status": "Todo",
+      "completed": false,
+      "createdAt": 1794386838195,
+      "order": 10000,
+      "subtasks": [
+        {
+          "id": "t09-dod1",
+          "text": "smartList(type): overview (open), today, important, scheduled (sorted by date), done",
+          "completed": false
+        },
+        {
+          "id": "t09-dod2",
+          "text": "search(query): case-insensitive on title/description/notes across projects",
+          "completed": false
+        },
+        {
+          "id": "t09-dod3",
+          "text": "counts(): badge numbers per smart list and per project (open todos)",
+          "completed": false
+        },
+        {
+          "id": "t09-dod4",
+          "text": "Results include project reference for display",
+          "completed": false
+        },
+        {
+          "id": "t09-dod5",
+          "text": "Unit tests with fixed \"today\"",
+          "completed": false
+        },
+        {
+          "id": "t09-dod6",
+          "text": "npm run lint passes",
+          "completed": false
+        },
+        {
+          "id": "t09-dod7",
+          "text": "npm test passes",
+          "completed": false
+        },
+        {
+          "id": "t09-dod8",
+          "text": "npm run build succeeds",
+          "completed": false
+        },
+        {
+          "id": "t09-dod9",
+          "text": "No DOM access in models/core/storage/utils",
+          "completed": false
+        },
+        {
+          "id": "t09-dod10",
+          "text": "Code-link tags updated to real line ranges",
+          "completed": false
+        },
+        {
+          "id": "t09-dod11",
+          "text": "Commit message proposed to user",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "todoui-t10",
+      "text": "T10 · StorageService",
+      "description": "Goal: Safe localStorage persistence with injected storage.\n\nDefinition of Done:\n- constructor(storage, key = STORAGE_KEY)\n- save(state) writes { version: 1, ...state }\n- load() returns null when missing, corrupt JSON, or unknown version (never throws)\n- clear()\n- Unit tests with a fake storage, incl. corrupt data and storage that throws\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: feat(storage): add localStorage persistence service\n\nCode links: line ranges are estimates until the task is done.",
+      "tags": [
+        "stage-4-persistence",
+        "feature",
+        "T10",
+        "src/js/storage/StorageService.js:1-60",
+        "tests/storage/StorageService.test.js:1-80"
+      ],
+      "priority": "Must",
+      "status": "Todo",
+      "completed": false,
+      "createdAt": 1794386838196,
+      "order": 11000,
+      "subtasks": [
+        {
+          "id": "t10-dod1",
+          "text": "constructor(storage, key = STORAGE_KEY)",
+          "completed": false
+        },
+        {
+          "id": "t10-dod2",
+          "text": "save(state) writes { version: 1, ...state }",
+          "completed": false
+        },
+        {
+          "id": "t10-dod3",
+          "text": "load() returns null when missing, corrupt JSON, or unknown version (never throws)",
+          "completed": false
+        },
+        {
+          "id": "t10-dod4",
+          "text": "clear()",
+          "completed": false
+        },
+        {
+          "id": "t10-dod5",
+          "text": "Unit tests with a fake storage, incl. corrupt data and storage that throws",
+          "completed": false
+        },
+        {
+          "id": "t10-dod6",
+          "text": "npm run lint passes",
+          "completed": false
+        },
+        {
+          "id": "t10-dod7",
+          "text": "npm test passes",
+          "completed": false
+        },
+        {
+          "id": "t10-dod8",
+          "text": "npm run build succeeds",
+          "completed": false
+        },
+        {
+          "id": "t10-dod9",
+          "text": "No DOM access in models/core/storage/utils",
+          "completed": false
+        },
+        {
+          "id": "t10-dod10",
+          "text": "Code-link tags updated to real line ranges",
+          "completed": false
+        },
+        {
+          "id": "t10-dod11",
+          "text": "Commit message proposed to user",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "todoui-t11",
+      "text": "T11 · Bootstrap: hydrate on load, autosave",
+      "description": "Goal: Wire storage, bus and ProjectManager in index.js.\n\nDefinition of Done:\n- index.js: load → ProjectManager.fromJSON or fresh (Inbox)\n- Subscribe StorageService.save to \"state:changed\"\n- Verified in DevTools > Application > Local Storage\n- Reload keeps data; deleting key restarts with Inbox\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: feat: hydrate state on load and autosave on change\n\nCode links: line ranges are estimates until the task is done.",
+      "tags": [
+        "stage-4-persistence",
+        "feature",
+        "T11",
+        "src/index.js:1-40"
+      ],
+      "priority": "Must",
+      "status": "Todo",
+      "completed": false,
+      "createdAt": 1794386838197,
+      "order": 12000,
+      "subtasks": [
+        {
+          "id": "t11-dod1",
+          "text": "index.js: load → ProjectManager.fromJSON or fresh (Inbox)",
+          "completed": false
+        },
+        {
+          "id": "t11-dod2",
+          "text": "Subscribe StorageService.save to \"state:changed\"",
+          "completed": false
+        },
+        {
+          "id": "t11-dod3",
+          "text": "Verified in DevTools > Application > Local Storage",
+          "completed": false
+        },
+        {
+          "id": "t11-dod4",
+          "text": "Reload keeps data; deleting key restarts with Inbox",
+          "completed": false
+        },
+        {
+          "id": "t11-dod5",
+          "text": "npm run lint passes",
+          "completed": false
+        },
+        {
+          "id": "t11-dod6",
+          "text": "npm test passes",
+          "completed": false
+        },
+        {
+          "id": "t11-dod7",
+          "text": "npm run build succeeds",
+          "completed": false
+        },
+        {
+          "id": "t11-dod8",
+          "text": "No DOM access in models/core/storage/utils",
+          "completed": false
+        },
+        {
+          "id": "t11-dod9",
+          "text": "Code-link tags updated to real line ranges",
+          "completed": false
+        },
+        {
+          "id": "t11-dod10",
+          "text": "Commit message proposed to user",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "todoui-t12",
+      "text": "T12 · Layout shell, design tokens, header",
+      "description": "Goal: Recreate the 3-pane look of TodosUI.png.\n\nDefinition of Done:\n- variables.css: colors, priority colors, spacing, radius, shadows, font (Google font or system)\n- base.css reset + typography\n- layout.css: CSS grid sidebar | list | detail, header across list+detail\n- template.html: semantic containers (aside, header, main sections)\n- Header.js: search input + static bell/avatar placeholder\n- Visually matches mockup proportions\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: feat(ui): add layout shell, design tokens and header\n\nCode links: line ranges are estimates until the task is done.",
+      "tags": [
+        "stage-5-ui-layout",
+        "feature",
+        "T12",
+        "src/styles/variables.css:1-40",
+        "src/styles/layout.css:1-60",
+        "src/template.html:1-40",
+        "src/js/ui/components/Header.js:1-50"
+      ],
+      "priority": "Should",
+      "status": "Todo",
+      "completed": false,
+      "createdAt": 1794386838198,
+      "order": 13000,
+      "subtasks": [
+        {
+          "id": "t12-dod1",
+          "text": "variables.css: colors, priority colors, spacing, radius, shadows, font (Google font or system)",
+          "completed": false
+        },
+        {
+          "id": "t12-dod2",
+          "text": "base.css reset + typography",
+          "completed": false
+        },
+        {
+          "id": "t12-dod3",
+          "text": "layout.css: CSS grid sidebar | list | detail, header across list+detail",
+          "completed": false
+        },
+        {
+          "id": "t12-dod4",
+          "text": "template.html: semantic containers (aside, header, main sections)",
+          "completed": false
+        },
+        {
+          "id": "t12-dod5",
+          "text": "Header.js: search input + static bell/avatar placeholder",
+          "completed": false
+        },
+        {
+          "id": "t12-dod6",
+          "text": "Visually matches mockup proportions",
+          "completed": false
+        },
+        {
+          "id": "t12-dod7",
+          "text": "npm run lint passes",
+          "completed": false
+        },
+        {
+          "id": "t12-dod8",
+          "text": "npm test passes",
+          "completed": false
+        },
+        {
+          "id": "t12-dod9",
+          "text": "npm run build succeeds",
+          "completed": false
+        },
+        {
+          "id": "t12-dod10",
+          "text": "No DOM access in models/core/storage/utils",
+          "completed": false
+        },
+        {
+          "id": "t12-dod11",
+          "text": "Code-link tags updated to real line ranges",
+          "completed": false
+        },
+        {
+          "id": "t12-dod12",
+          "text": "Commit message proposed to user",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "todoui-t13",
+      "text": "T13 · App controller and DOM helpers",
+      "description": "Goal: UI controller that owns view state and re-renders panes.\n\nDefinition of Done:\n- dom.js: el(tag, {class, attrs, on}, children), clear(node)\n- App: holds view state (active list/project, selected todo, search query)\n- App subscribes to \"state:changed\" and re-renders\n- Components receive data + callbacks; never import storage\n- index.js mounts App\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: feat(ui): add App controller and DOM helpers\n\nCode links: line ranges are estimates until the task is done.",
+      "tags": [
+        "stage-5-ui-layout",
+        "feature",
+        "T13",
+        "src/js/ui/dom.js:1-40",
+        "src/js/ui/App.js:1-120",
+        "src/index.js:1-50"
+      ],
+      "priority": "Must",
+      "status": "Todo",
+      "completed": false,
+      "createdAt": 1794386838199,
+      "order": 14000,
+      "subtasks": [
+        {
+          "id": "t13-dod1",
+          "text": "dom.js: el(tag, {class, attrs, on}, children), clear(node)",
+          "completed": false
+        },
+        {
+          "id": "t13-dod2",
+          "text": "App: holds view state (active list/project, selected todo, search query)",
+          "completed": false
+        },
+        {
+          "id": "t13-dod3",
+          "text": "App subscribes to \"state:changed\" and re-renders",
+          "completed": false
+        },
+        {
+          "id": "t13-dod4",
+          "text": "Components receive data + callbacks; never import storage",
+          "completed": false
+        },
+        {
+          "id": "t13-dod5",
+          "text": "index.js mounts App",
+          "completed": false
+        },
+        {
+          "id": "t13-dod6",
+          "text": "npm run lint passes",
+          "completed": false
+        },
+        {
+          "id": "t13-dod7",
+          "text": "npm test passes",
+          "completed": false
+        },
+        {
+          "id": "t13-dod8",
+          "text": "npm run build succeeds",
+          "completed": false
+        },
+        {
+          "id": "t13-dod9",
+          "text": "No DOM access in models/core/storage/utils",
+          "completed": false
+        },
+        {
+          "id": "t13-dod10",
+          "text": "Code-link tags updated to real line ranges",
+          "completed": false
+        },
+        {
+          "id": "t13-dod11",
+          "text": "Commit message proposed to user",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "todoui-t14",
+      "text": "T14 · Sidebar with smart lists and projects",
+      "description": "Goal: Left pane as in mockup.\n\nDefinition of Done:\n- Logo, smart lists with icons and count badges\n- Projects with color dot and open-todo count\n- Active item highlighted; clicking switches view\n- \"+ New project\" entry and orange FAB (+ new todo)\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: feat(ui): render sidebar with smart lists and projects\n\nCode links: line ranges are estimates until the task is done.",
+      "tags": [
+        "stage-6-ui-features",
+        "feature",
+        "T14",
+        "src/js/ui/components/Sidebar.js:1-120",
+        "src/styles/sidebar.css:1-100"
+      ],
+      "priority": "Must",
+      "status": "Todo",
+      "completed": false,
+      "createdAt": 1794386838200,
+      "order": 15000,
+      "subtasks": [
+        {
+          "id": "t14-dod1",
+          "text": "Logo, smart lists with icons and count badges",
+          "completed": false
+        },
+        {
+          "id": "t14-dod2",
+          "text": "Projects with color dot and open-todo count",
+          "completed": false
+        },
+        {
+          "id": "t14-dod3",
+          "text": "Active item highlighted; clicking switches view",
+          "completed": false
+        },
+        {
+          "id": "t14-dod4",
+          "text": "\"+ New project\" entry and orange FAB (+ new todo)",
+          "completed": false
+        },
+        {
+          "id": "t14-dod5",
+          "text": "npm run lint passes",
+          "completed": false
+        },
+        {
+          "id": "t14-dod6",
+          "text": "npm test passes",
+          "completed": false
+        },
+        {
+          "id": "t14-dod7",
+          "text": "npm run build succeeds",
+          "completed": false
+        },
+        {
+          "id": "t14-dod8",
+          "text": "No DOM access in models/core/storage/utils",
+          "completed": false
+        },
+        {
+          "id": "t14-dod9",
+          "text": "Code-link tags updated to real line ranges",
+          "completed": false
+        },
+        {
+          "id": "t14-dod10",
+          "text": "Commit message proposed to user",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "todoui-t15",
+      "text": "T15 · Project create, rename, delete",
+      "description": "Goal: Modal base class and project form.\n\nDefinition of Done:\n- Modal base: open/close, overlay click, Esc, focus first field\n- ProjectFormModal: name (required) + color choice\n- List-header ⋮ menu: rename / delete (with confirm)\n- Inbox cannot be renamed/deleted (menu items hidden)\n- Deleting active project returns to Inbox\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: feat(ui): add project create, rename and delete\n\nCode links: line ranges are estimates until the task is done.",
+      "tags": [
+        "stage-6-ui-features",
+        "feature",
+        "T15",
+        "src/js/ui/components/Modal.js:1-60",
+        "src/js/ui/components/ProjectFormModal.js:1-80",
+        "src/styles/modal.css:1-60"
+      ],
+      "priority": "Should",
+      "status": "Todo",
+      "completed": false,
+      "createdAt": 1794386838201,
+      "order": 16000,
+      "subtasks": [
+        {
+          "id": "t15-dod1",
+          "text": "Modal base: open/close, overlay click, Esc, focus first field",
+          "completed": false
+        },
+        {
+          "id": "t15-dod2",
+          "text": "ProjectFormModal: name (required) + color choice",
+          "completed": false
+        },
+        {
+          "id": "t15-dod3",
+          "text": "List-header ⋮ menu: rename / delete (with confirm)",
+          "completed": false
+        },
+        {
+          "id": "t15-dod4",
+          "text": "Inbox cannot be renamed/deleted (menu items hidden)",
+          "completed": false
+        },
+        {
+          "id": "t15-dod5",
+          "text": "Deleting active project returns to Inbox",
+          "completed": false
+        },
+        {
+          "id": "t15-dod6",
+          "text": "npm run lint passes",
+          "completed": false
+        },
+        {
+          "id": "t15-dod7",
+          "text": "npm test passes",
+          "completed": false
+        },
+        {
+          "id": "t15-dod8",
+          "text": "npm run build succeeds",
+          "completed": false
+        },
+        {
+          "id": "t15-dod9",
+          "text": "No DOM access in models/core/storage/utils",
+          "completed": false
+        },
+        {
+          "id": "t15-dod10",
+          "text": "Code-link tags updated to real line ranges",
+          "completed": false
+        },
+        {
+          "id": "t15-dod11",
+          "text": "Commit message proposed to user",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "todoui-t16",
+      "text": "T16 · Todo list view",
+      "description": "Goal: Middle pane rows as in mockup.\n\nDefinition of Done:\n- Header with current list/project name (blue underline)\n- Row: circle checkbox colored by priority, title, due label, notes/checklist icons, star\n- Completing and starring work from the row\n- Selected row highlighted; click selects todo\n- Empty state message\n- In smart lists, row shows project name\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: feat(ui): render todo list with priority colors and due labels\n\nCode links: line ranges are estimates until the task is done.",
+      "tags": [
+        "stage-6-ui-features",
+        "feature",
+        "T16",
+        "src/js/ui/components/TodoListView.js:1-140",
+        "src/styles/todo-list.css:1-120"
+      ],
+      "priority": "Must",
+      "status": "Todo",
+      "completed": false,
+      "createdAt": 1794386838202,
+      "order": 17000,
+      "subtasks": [
+        {
+          "id": "t16-dod1",
+          "text": "Header with current list/project name (blue underline)",
+          "completed": false
+        },
+        {
+          "id": "t16-dod2",
+          "text": "Row: circle checkbox colored by priority, title, due label, notes/checklist icons, star",
+          "completed": false
+        },
+        {
+          "id": "t16-dod3",
+          "text": "Completing and starring work from the row",
+          "completed": false
+        },
+        {
+          "id": "t16-dod4",
+          "text": "Selected row highlighted; click selects todo",
+          "completed": false
+        },
+        {
+          "id": "t16-dod5",
+          "text": "Empty state message",
+          "completed": false
+        },
+        {
+          "id": "t16-dod6",
+          "text": "In smart lists, row shows project name",
+          "completed": false
+        },
+        {
+          "id": "t16-dod7",
+          "text": "npm run lint passes",
+          "completed": false
+        },
+        {
+          "id": "t16-dod8",
+          "text": "npm test passes",
+          "completed": false
+        },
+        {
+          "id": "t16-dod9",
+          "text": "npm run build succeeds",
+          "completed": false
+        },
+        {
+          "id": "t16-dod10",
+          "text": "No DOM access in models/core/storage/utils",
+          "completed": false
+        },
+        {
+          "id": "t16-dod11",
+          "text": "Code-link tags updated to real line ranges",
+          "completed": false
+        },
+        {
+          "id": "t16-dod12",
+          "text": "Commit message proposed to user",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "todoui-t17",
+      "text": "T17 · New todo form",
+      "description": "Goal: FAB opens a form to create a todo.\n\nDefinition of Done:\n- Fields: title (required), description, due date, priority (default medium), project select\n- Project defaults to current project (Inbox in smart lists)\n- Validation message on empty title\n- New todo is selected after creation\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: feat(ui): add new todo form\n\nCode links: line ranges are estimates until the task is done.",
+      "tags": [
+        "stage-6-ui-features",
+        "feature",
+        "T17",
+        "src/js/ui/components/TodoFormModal.js:1-100"
+      ],
+      "priority": "Must",
+      "status": "Todo",
+      "completed": false,
+      "createdAt": 1794386838203,
+      "order": 18000,
+      "subtasks": [
+        {
+          "id": "t17-dod1",
+          "text": "Fields: title (required), description, due date, priority (default medium), project select",
+          "completed": false
+        },
+        {
+          "id": "t17-dod2",
+          "text": "Project defaults to current project (Inbox in smart lists)",
+          "completed": false
+        },
+        {
+          "id": "t17-dod3",
+          "text": "Validation message on empty title",
+          "completed": false
+        },
+        {
+          "id": "t17-dod4",
+          "text": "New todo is selected after creation",
+          "completed": false
+        },
+        {
+          "id": "t17-dod5",
+          "text": "npm run lint passes",
+          "completed": false
+        },
+        {
+          "id": "t17-dod6",
+          "text": "npm test passes",
+          "completed": false
+        },
+        {
+          "id": "t17-dod7",
+          "text": "npm run build succeeds",
+          "completed": false
+        },
+        {
+          "id": "t17-dod8",
+          "text": "No DOM access in models/core/storage/utils",
+          "completed": false
+        },
+        {
+          "id": "t17-dod9",
+          "text": "Code-link tags updated to real line ranges",
+          "completed": false
+        },
+        {
+          "id": "t17-dod10",
+          "text": "Commit message proposed to user",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "todoui-t18",
+      "text": "T18 · Todo detail pane",
+      "description": "Goal: Right pane: expand a single todo to see/edit its details.\n\nDefinition of Done:\n- Shows title, completion check, star, due date, priority, project, description\n- Inline edits saved on change/blur\n- Move todo to another project via select\n- ⋮ menu → Delete with confirm; pane clears afterwards\n- Placeholder when nothing is selected\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: feat(ui): add todo detail pane with inline editing and delete\n\nCode links: line ranges are estimates until the task is done.",
+      "tags": [
+        "stage-6-ui-features",
+        "feature",
+        "T18",
+        "src/js/ui/components/TodoDetailView.js:1-160",
+        "src/styles/todo-detail.css:1-120"
+      ],
+      "priority": "Must",
+      "status": "Todo",
+      "completed": false,
+      "createdAt": 1794386838204,
+      "order": 19000,
+      "subtasks": [
+        {
+          "id": "t18-dod1",
+          "text": "Shows title, completion check, star, due date, priority, project, description",
+          "completed": false
+        },
+        {
+          "id": "t18-dod2",
+          "text": "Inline edits saved on change/blur",
+          "completed": false
+        },
+        {
+          "id": "t18-dod3",
+          "text": "Move todo to another project via select",
+          "completed": false
+        },
+        {
+          "id": "t18-dod4",
+          "text": "⋮ menu → Delete with confirm; pane clears afterwards",
+          "completed": false
+        },
+        {
+          "id": "t18-dod5",
+          "text": "Placeholder when nothing is selected",
+          "completed": false
+        },
+        {
+          "id": "t18-dod6",
+          "text": "npm run lint passes",
+          "completed": false
+        },
+        {
+          "id": "t18-dod7",
+          "text": "npm test passes",
+          "completed": false
+        },
+        {
+          "id": "t18-dod8",
+          "text": "npm run build succeeds",
+          "completed": false
+        },
+        {
+          "id": "t18-dod9",
+          "text": "No DOM access in models/core/storage/utils",
+          "completed": false
+        },
+        {
+          "id": "t18-dod10",
+          "text": "Code-link tags updated to real line ranges",
+          "completed": false
+        },
+        {
+          "id": "t18-dod11",
+          "text": "Commit message proposed to user",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "todoui-t19",
+      "text": "T19 · Checklist steps and notes",
+      "description": "Goal: Checklist (\"Add step\") and notes area in the detail pane.\n\nDefinition of Done:\n- \"+ Add step\" adds item (Enter), toggle with circle, remove on hover\n- Notes textarea (\"Add notes...\") with save button, persisted\n- List row icons reflect notes/checklist presence\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: feat(ui): add checklist steps and notes to todo detail\n\nCode links: line ranges are estimates until the task is done.",
+      "tags": [
+        "stage-6-ui-features",
+        "feature",
+        "T19",
+        "src/js/ui/components/TodoDetailView.js:160-260"
+      ],
+      "priority": "Should",
+      "status": "Todo",
+      "completed": false,
+      "createdAt": 1794386838205,
+      "order": 20000,
+      "subtasks": [
+        {
+          "id": "t19-dod1",
+          "text": "\"+ Add step\" adds item (Enter), toggle with circle, remove on hover",
+          "completed": false
+        },
+        {
+          "id": "t19-dod2",
+          "text": "Notes textarea (\"Add notes...\") with save button, persisted",
+          "completed": false
+        },
+        {
+          "id": "t19-dod3",
+          "text": "List row icons reflect notes/checklist presence",
+          "completed": false
+        },
+        {
+          "id": "t19-dod4",
+          "text": "npm run lint passes",
+          "completed": false
+        },
+        {
+          "id": "t19-dod5",
+          "text": "npm test passes",
+          "completed": false
+        },
+        {
+          "id": "t19-dod6",
+          "text": "npm run build succeeds",
+          "completed": false
+        },
+        {
+          "id": "t19-dod7",
+          "text": "No DOM access in models/core/storage/utils",
+          "completed": false
+        },
+        {
+          "id": "t19-dod8",
+          "text": "Code-link tags updated to real line ranges",
+          "completed": false
+        },
+        {
+          "id": "t19-dod9",
+          "text": "Commit message proposed to user",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "todoui-t20",
+      "text": "T20 · Cross-project search",
+      "description": "Goal: Header search filters todos across projects.\n\nDefinition of Done:\n- Debounced input (~200ms) updates App view state\n- List pane shows \"Search: <query>\" results with project names\n- Clearing the input (or Esc) returns to previous view\n- No-results empty state\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: feat(ui): add cross-project search\n\nCode links: line ranges are estimates until the task is done.",
+      "tags": [
+        "stage-6-ui-features",
+        "feature",
+        "T20",
+        "src/js/ui/components/Header.js:1-70",
+        "src/js/ui/App.js:1-160"
+      ],
+      "priority": "Should",
+      "status": "Todo",
+      "completed": false,
+      "createdAt": 1794386838206,
+      "order": 21000,
+      "subtasks": [
+        {
+          "id": "t20-dod1",
+          "text": "Debounced input (~200ms) updates App view state",
+          "completed": false
+        },
+        {
+          "id": "t20-dod2",
+          "text": "List pane shows \"Search: <query>\" results with project names",
+          "completed": false
+        },
+        {
+          "id": "t20-dod3",
+          "text": "Clearing the input (or Esc) returns to previous view",
+          "completed": false
+        },
+        {
+          "id": "t20-dod4",
+          "text": "No-results empty state",
+          "completed": false
+        },
+        {
+          "id": "t20-dod5",
+          "text": "npm run lint passes",
+          "completed": false
+        },
+        {
+          "id": "t20-dod6",
+          "text": "npm test passes",
+          "completed": false
+        },
+        {
+          "id": "t20-dod7",
+          "text": "npm run build succeeds",
+          "completed": false
+        },
+        {
+          "id": "t20-dod8",
+          "text": "No DOM access in models/core/storage/utils",
+          "completed": false
+        },
+        {
+          "id": "t20-dod9",
+          "text": "Code-link tags updated to real line ranges",
+          "completed": false
+        },
+        {
+          "id": "t20-dod10",
+          "text": "Commit message proposed to user",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "todoui-t21",
+      "text": "T21 · Responsive layout and accessibility",
+      "description": "Goal: Usable on narrow screens and with keyboard.\n\nDefinition of Done:\n- Breakpoints: detail pane overlays on < 1024px, sidebar collapses on < 768px\n- All inputs labelled; buttons have aria-labels\n- Visible focus styles; Enter/Esc in modals and menus\n- Overdue due labels styled red\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: style: add responsive layout and accessibility improvements\n\nCode links: line ranges are estimates until the task is done.",
+      "tags": [
+        "stage-7-polish",
+        "feature",
+        "T21",
+        "src/styles/",
+        "src/js/ui/components/"
+      ],
+      "priority": "Should",
+      "status": "Todo",
+      "completed": false,
+      "createdAt": 1794386838207,
+      "order": 22000,
+      "subtasks": [
+        {
+          "id": "t21-dod1",
+          "text": "Breakpoints: detail pane overlays on < 1024px, sidebar collapses on < 768px",
+          "completed": false
+        },
+        {
+          "id": "t21-dod2",
+          "text": "All inputs labelled; buttons have aria-labels",
+          "completed": false
+        },
+        {
+          "id": "t21-dod3",
+          "text": "Visible focus styles; Enter/Esc in modals and menus",
+          "completed": false
+        },
+        {
+          "id": "t21-dod4",
+          "text": "Overdue due labels styled red",
+          "completed": false
+        },
+        {
+          "id": "t21-dod5",
+          "text": "npm run lint passes",
+          "completed": false
+        },
+        {
+          "id": "t21-dod6",
+          "text": "npm test passes",
+          "completed": false
+        },
+        {
+          "id": "t21-dod7",
+          "text": "npm run build succeeds",
+          "completed": false
+        },
+        {
+          "id": "t21-dod8",
+          "text": "No DOM access in models/core/storage/utils",
+          "completed": false
+        },
+        {
+          "id": "t21-dod9",
+          "text": "Code-link tags updated to real line ranges",
+          "completed": false
+        },
+        {
+          "id": "t21-dod10",
+          "text": "Commit message proposed to user",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "todoui-t22",
+      "text": "T22 · QA pass and README",
+      "description": "Goal: Verify against the brief and document the project.\n\nDefinition of Done:\n- End-to-end checklist from plan.md §5 passes\n- Bugs found are fixed\n- README: features, screenshots, scripts, architecture summary\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: docs: update README and fix QA findings\n\nCode links: line ranges are estimates until the task is done.",
+      "tags": [
+        "stage-7-polish",
+        "docs",
+        "T22",
+        "README.md:1-60",
+        "plan.md:1"
+      ],
+      "priority": "Should",
+      "status": "Todo",
+      "completed": false,
+      "createdAt": 1794386838208,
+      "order": 23000,
+      "subtasks": [
+        {
+          "id": "t22-dod1",
+          "text": "End-to-end checklist from plan.md §5 passes",
+          "completed": false
+        },
+        {
+          "id": "t22-dod2",
+          "text": "Bugs found are fixed",
+          "completed": false
+        },
+        {
+          "id": "t22-dod3",
+          "text": "README: features, screenshots, scripts, architecture summary",
+          "completed": false
+        },
+        {
+          "id": "t22-dod4",
+          "text": "npm run lint passes",
+          "completed": false
+        },
+        {
+          "id": "t22-dod5",
+          "text": "npm test passes",
+          "completed": false
+        },
+        {
+          "id": "t22-dod6",
+          "text": "npm run build succeeds",
+          "completed": false
+        },
+        {
+          "id": "t22-dod7",
+          "text": "No DOM access in models/core/storage/utils",
+          "completed": false
+        },
+        {
+          "id": "t22-dod8",
+          "text": "Code-link tags updated to real line ranges",
+          "completed": false
+        },
+        {
+          "id": "t22-dod9",
+          "text": "Commit message proposed to user",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": "todoui-t23",
+      "text": "T23 · GitHub Pages deployment",
+      "description": "Goal: Publish dist/ to gh-pages.\n\nDefinition of Done:\n- gh-pages dev dependency + \"deploy\" script (build then publish dist/)\n- publicPath works under /<repo>/\n- Live URL in README\n- Deployed site loads and persists data\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: chore: add GitHub Pages deployment\n\nCode links: line ranges are estimates until the task is done.",
+      "tags": [
+        "stage-8-release",
+        "chore",
+        "T23",
+        "package.json:1-60",
+        "webpack.config.js:1-50",
+        "README.md:1"
+      ],
+      "priority": "Could",
+      "status": "Todo",
+      "completed": false,
+      "createdAt": 1794386838209,
+      "order": 24000,
+      "subtasks": [
+        {
+          "id": "t23-dod1",
+          "text": "gh-pages dev dependency + \"deploy\" script (build then publish dist/)",
+          "completed": false
+        },
+        {
+          "id": "t23-dod2",
+          "text": "publicPath works under /<repo>/",
+          "completed": false
+        },
+        {
+          "id": "t23-dod3",
+          "text": "Live URL in README",
+          "completed": false
+        },
+        {
+          "id": "t23-dod4",
+          "text": "Deployed site loads and persists data",
+          "completed": false
+        },
+        {
+          "id": "t23-dod5",
+          "text": "npm run lint passes",
+          "completed": false
+        },
+        {
+          "id": "t23-dod6",
+          "text": "npm test passes",
+          "completed": false
+        },
+        {
+          "id": "t23-dod7",
+          "text": "npm run build succeeds",
+          "completed": false
+        },
+        {
+          "id": "t23-dod8",
+          "text": "No DOM access in models/core/storage/utils",
+          "completed": false
+        },
+        {
+          "id": "t23-dod9",
+          "text": "Code-link tags updated to real line ranges",
+          "completed": false
+        },
+        {
+          "id": "t23-dod10",
+          "text": "Commit message proposed to user",
+          "completed": false
+        }
+      ]
+    }
+  ]
+}
