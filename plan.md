@@ -75,6 +75,7 @@ src/
         ├── dateFormat.js        # date-fns: formatDueLabel, isToday, isOverdue
         └── debounce.js          # debounce with cancel/flush (search input)
 tests/                           # Jest, mirrors src/js (models, core, storage, utils)
+docs/screenshots/                # README images (desktop, mobile)
 webpack.config.js · babel.config.js · eslint.config.js · .prettierrc · package.json
 ```
 

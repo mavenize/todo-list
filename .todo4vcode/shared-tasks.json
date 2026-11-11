@@ -1621,59 +1621,62 @@
         "stage-7-polish",
         "docs",
         "T22",
-        "README.md:1-60",
-        "plan.md:1"
+        "README.md:1-97",
+        "docs/screenshots/",
+        "src/js/ui/components/TodoListView.js:134-135",
+        "plan.md:78",
+        "CLAUDE.md"
       ],
       "priority": "Should",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "createdAt": 1794386838208,
       "order": 23000,
       "subtasks": [
         {
           "id": "t22-dod1",
           "text": "End-to-end checklist from plan.md §5 passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t22-dod2",
           "text": "Bugs found are fixed",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t22-dod3",
           "text": "README: features, screenshots, scripts, architecture summary",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t22-dod4",
           "text": "npm run lint passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t22-dod5",
           "text": "npm test passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t22-dod6",
           "text": "npm run build succeeds",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t22-dod7",
           "text": "No DOM access in models/core/storage/utils",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t22-dod8",
           "text": "Code-link tags updated to real line ranges",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t22-dod9",
           "text": "Commit message proposed to user",
-          "completed": false
+          "completed": true
         }
       ]
     },
