@@ -845,76 +845,80 @@
         "stage-5-ui-layout",
         "feature",
         "T12",
-        "src/styles/variables.css:1-40",
-        "src/styles/layout.css:1-60",
-        "src/template.html:1-40",
-        "src/js/ui/components/Header.js:1-50"
+        "src/styles/variables.css:1-69",
+        "src/styles/base.css:1-104",
+        "src/styles/layout.css:1-159",
+        "src/template.html:1-28",
+        "src/js/ui/components/Header.js:1-43",
+        "src/js/ui/icons.js:1-22",
+        "src/index.js:4-10",
+        "src/index.js:40-41"
       ],
       "priority": "Should",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "createdAt": 1794386838198,
       "order": 13000,
       "subtasks": [
         {
           "id": "t12-dod1",
           "text": "variables.css: colors, priority colors, spacing, radius, shadows, font (Google font or system)",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t12-dod2",
           "text": "base.css reset + typography",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t12-dod3",
           "text": "layout.css: CSS grid sidebar | list | detail, header across list+detail",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t12-dod4",
           "text": "template.html: semantic containers (aside, header, main sections)",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t12-dod5",
           "text": "Header.js: search input + static bell/avatar placeholder",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t12-dod6",
           "text": "Visually matches mockup proportions",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t12-dod7",
           "text": "npm run lint passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t12-dod8",
           "text": "npm test passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t12-dod9",
           "text": "npm run build succeeds",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t12-dod10",
           "text": "No DOM access in models/core/storage/utils",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t12-dod11",
           "text": "Code-link tags updated to real line ranges",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t12-dod12",
           "text": "Commit message proposed to user",
-          "completed": false
+          "completed": true
         }
       ]
     },

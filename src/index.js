@@ -1,10 +1,13 @@
 // Entry point and the only side-effect module: wires storage, the event bus and the
 // ProjectManager together. The UI (App) is mounted here from T13 on.
 /* global process */
+import './styles/variables.css';
 import './styles/base.css';
+import './styles/layout.css';
 import { EventBus } from './js/core/EventBus';
 import { hydrateProjectManager } from './js/core/hydrate';
 import { StorageService } from './js/storage/StorageService';
+import { Header } from './js/ui/components/Header';
 import { EVENTS } from './js/utils/constants';
 
 /** window.localStorage, or null when the browser blocks it (the getter itself can throw). */
@@ -33,6 +36,9 @@ bus.on(EVENTS.STATE_CHANGED, () => {
     console.warn('TodoUI: could not save to localStorage.');
   }
 });
+
+// Layout shell. App takes over mounting the components in T13.
+new Header(document.getElementById('app-header')).render();
 
 // Development-only hook for checking persistence in DevTools before the UI exists.
 if (process.env.NODE_ENV !== 'production') {

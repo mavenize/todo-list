@@ -6,8 +6,23 @@
     <title>TodoUI</title>
   </head>
   <body>
-    <div id="app">
-      <h1 class="boot-title">TodoUI</h1>
+    <div class="app" id="app">
+      <aside class="sidebar" aria-label="Lists and projects">
+        <div class="sidebar__brand">
+          <svg class="icon sidebar__logo" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3 21.5 20h-19z" />
+          </svg>
+          <span>TODOUI</span>
+        </div>
+        <nav class="sidebar__content" id="sidebar" aria-label="Lists"></nav>
+      </aside>
+
+      <header class="app-header" id="app-header"></header>
+
+      <main class="main">
+        <section class="list-pane" id="list-pane" aria-label="Todos"></section>
+        <section class="detail-pane" id="detail-pane" aria-label="Todo details"></section>
+      </main>
     </div>
   </body>
 </html>
