@@ -131,7 +131,8 @@ export class TodoListView {
           attrs: {
             type: 'checkbox',
             checked: completed,
-            'aria-label': `Done: ${title}`,
+            // The ring color shows the priority; say it in words too (not color alone).
+            'aria-label': `Done: ${title}, ${priority} priority`,
             title: `Priority: ${priority}`,
             'data-focus-key': `check:${id}`,
           },
