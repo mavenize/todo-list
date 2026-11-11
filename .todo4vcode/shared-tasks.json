@@ -251,76 +251,78 @@
     {
       "id": "todoui-t04",
       "text": "T04 · Utils: constants, id, dateFormat",
-      "description": "Goal: Create folder skeleton and shared helpers; install date-fns.\n\nDefinition of Done:\n- src/js/{models,core,storage,ui/components,utils} folders exist\n- constants.js: PRIORITIES, SMART_LISTS, STORAGE_KEY, PROJECT_COLORS, DEFAULT_PROJECT\n- id.js: createId() via crypto.randomUUID\n- dateFormat.js: formatDueLabel (Today/Tomorrow/\"Tue, 1 May\"), isDueToday, isOverdue\n- Unit tests for dateFormat and id\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: feat(utils): add constants, id generator and date helpers\n\nCode links: line ranges are estimates until the task is done.",
+      "description": "Goal: Create folder skeleton and shared helpers; install date-fns.\n\nDefinition of Done:\n- src/js/{models,core,storage,ui/components,utils} folders exist\n- constants.js: PRIORITIES, SMART_LISTS, STORAGE_KEY, PROJECT_COLORS, DEFAULT_PROJECT\n- id.js: createId() via crypto.randomUUID\n- dateFormat.js: formatDueLabel (Today/Tomorrow/\"Tue, 1 May\"), isDueToday, isOverdue\n- Unit tests for dateFormat and id\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: feat(utils): add constants, id generator and date helpers\n\nCode links: verified line ranges.",
       "tags": [
         "stage-1-setup",
         "feature",
         "T04",
-        "src/js/utils/constants.js:1-40",
-        "src/js/utils/id.js:1-10",
-        "src/js/utils/dateFormat.js:1-50",
-        "tests/utils/dateFormat.test.js:1-60"
+        "src/js/utils/constants.js:1-50",
+        "src/js/utils/id.js:1-12",
+        "src/js/utils/dateFormat.js:1-55",
+        "tests/utils/dateFormat.test.js:1-86",
+        "tests/utils/id.test.js:1-27",
+        "tests/utils/constants.test.js:1-23"
       ],
       "priority": "Must",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "createdAt": 1794386838190,
       "order": 5000,
       "subtasks": [
         {
           "id": "t04-dod1",
           "text": "src/js/{models,core,storage,ui/components,utils} folders exist",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t04-dod2",
           "text": "constants.js: PRIORITIES, SMART_LISTS, STORAGE_KEY, PROJECT_COLORS, DEFAULT_PROJECT",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t04-dod3",
           "text": "id.js: createId() via crypto.randomUUID",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t04-dod4",
           "text": "dateFormat.js: formatDueLabel (Today/Tomorrow/\"Tue, 1 May\"), isDueToday, isOverdue",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t04-dod5",
           "text": "Unit tests for dateFormat and id",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t04-dod6",
           "text": "npm run lint passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t04-dod7",
           "text": "npm test passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t04-dod8",
           "text": "npm run build succeeds",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t04-dod9",
           "text": "No DOM access in models/core/storage/utils",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t04-dod10",
           "text": "Code-link tags updated to real line ranges",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t04-dod11",
           "text": "Commit message proposed to user",
-          "completed": false
+          "completed": true
         }
       ]
     },

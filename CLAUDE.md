@@ -59,8 +59,8 @@ These are added by T01–T03 and T23.
 | `npm run dev` | webpack-dev-server with live reload |
 | `npm run build` | Production bundle into `dist/` |
 | `npm run lint` / `lint:fix` | ESLint |
-| `npm run format` | Prettier write |
-| `npm test` / `test:watch` | Jest |
+| `npm run format` / `format:check` | Prettier write / check. Markdown is excluded on purpose (see `.prettierignore`). |
+| `npm test` / `test:watch` / `test:coverage` | Jest (config in `jest.config.js`, Babel only for tests via `babel.config.js`) |
 | `npm run deploy` | Build and publish `dist/` to GitHub Pages |
 
 ## todo4vcode task format
@@ -87,4 +87,5 @@ To add a new task, take the next free `TNN`, include the standard DoD items (lis
 
 ## Status log
 Update this when a stage is completed.
-- 2026-11-11: Stage 0 (planning) done. Plan approved. Backlog T00–T23 created. Next: **T01**.
+- 2026-11-11: Stage 0 (planning) done. Plan approved. Backlog T00–T23 created.
+- 2026-11-11: Stage 1 (setup) done: webpack 5, ESLint 10 (flat) + Prettier 3, Jest 30 + Babel 8, date-fns 4. Shared helpers in `src/js/utils/`. Next: **T05**.
