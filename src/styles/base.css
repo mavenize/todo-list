@@ -163,3 +163,16 @@ button {
   background: var(--color-hover);
   color: var(--color-text);
 }
+
+/* Priority colors: set --ring-color for the checkbox ring and the priority dots. */
+.priority--low {
+  --ring-color: var(--priority-low);
+}
+
+.priority--medium {
+  --ring-color: var(--priority-medium);
+}
+
+.priority--high {
+  --ring-color: var(--priority-high);
+}

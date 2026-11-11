@@ -81,18 +81,6 @@
   box-shadow: 0 4px 10px color-mix(in srgb, var(--color-accent) 35%, transparent);
 }
 
-.priority--low {
-  --ring-color: var(--priority-low);
-}
-
-.priority--medium {
-  --ring-color: var(--priority-medium);
-}
-
-.priority--high {
-  --ring-color: var(--priority-high);
-}
-
 /* Title + meta; the button fills the row so the whole middle is clickable. */
 .todo-item__main {
   display: flex;

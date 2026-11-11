@@ -6,6 +6,7 @@ import { DropdownMenu } from './components/DropdownMenu';
 import { Header } from './components/Header';
 import { ProjectFormModal } from './components/ProjectFormModal';
 import { Sidebar } from './components/Sidebar';
+import { TodoFormModal } from './components/TodoFormModal';
 import { TodoListView } from './components/TodoListView';
 import { clear } from './dom';
 
@@ -299,8 +300,23 @@ export class App {
     }).render();
   }
 
+  /**
+   * FAB "New todo". The project defaults to the current project (the Inbox in smart lists).
+   * The new todo is selected; if the current view wouldn't show it, its project is opened.
+   */
   #openTodoForm() {
-    // TodoFormModal is added in T17.
+    const inProject = !this.isSearching && this.#activeView.type === VIEW_TYPES.PROJECT;
+    new TodoFormModal({
+      projects: this.#manager.projects.map(({ id, name }) => ({ id, name })),
+      defaultProjectId: inProject ? this.#activeView.id : this.#manager.defaultProject.id,
+      onSubmit: ({ projectId, ...fields }) => {
+        const todo = this.#manager.addTodo(projectId, fields);
+        if (!this.#currentEntries().some((entry) => entry.todo.id === todo.id)) {
+          this.showProject(projectId);
+        }
+        this.selectTodo(todo.id);
+      },
+    }).open();
   }
 
   #renderSidebar() {

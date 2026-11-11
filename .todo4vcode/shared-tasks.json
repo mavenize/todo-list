@@ -1249,63 +1249,68 @@
         "stage-6-ui-features",
         "feature",
         "T17",
-        "src/js/ui/components/TodoFormModal.js:1-100"
+        "src/js/ui/components/TodoFormModal.js:1-191",
+        "src/js/ui/App.js:303-320",
+        "src/styles/modal.css:14-16",
+        "src/styles/modal.css:93-115",
+        "src/styles/modal.css:177-232",
+        "src/styles/base.css:167-178"
       ],
       "priority": "Must",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "createdAt": 1794386838203,
       "order": 18000,
       "subtasks": [
         {
           "id": "t17-dod1",
           "text": "Fields: title (required), description, due date, priority (default medium), project select",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t17-dod2",
           "text": "Project defaults to current project (Inbox in smart lists)",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t17-dod3",
           "text": "Validation message on empty title",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t17-dod4",
           "text": "New todo is selected after creation",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t17-dod5",
           "text": "npm run lint passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t17-dod6",
           "text": "npm test passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t17-dod7",
           "text": "npm run build succeeds",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t17-dod8",
           "text": "No DOM access in models/core/storage/utils",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t17-dod9",
           "text": "Code-link tags updated to real line ranges",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t17-dod10",
           "text": "Commit message proposed to user",
-          "completed": false
+          "completed": true
         }
       ]
     },
