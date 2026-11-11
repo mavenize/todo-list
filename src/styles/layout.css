@@ -15,6 +15,7 @@
     'sidebar header'
     'sidebar main';
   height: 100vh;
+  height: 100dvh; /* mobile browsers: exclude the collapsing toolbars */
   overflow: hidden;
 }
 
@@ -86,6 +87,15 @@
 
 .search:focus-within {
   color: var(--color-accent);
+  /* The input has no outline of its own; underline the whole field instead. */
+  box-shadow: inset 0 -2px 0 var(--color-accent);
+}
+
+/* ☰ drawer toggle, only shown when the sidebar is collapsed (< 768px). */
+.app-header__menu {
+  display: none;
+  align-self: center;
+  margin-left: var(--space-2);
 }
 
 .app-header__bell {
@@ -131,4 +141,121 @@
 
 .user-chip__chevron {
   color: var(--color-text-muted);
+}
+
+/* Scrim behind the sidebar drawer (< 768px). */
+.scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: var(--color-backdrop);
+}
+
+.scrim[hidden] {
+  display: none;
+}
+
+/*
+ * < 1024px: the list takes the full width; the detail pane slides over it from the right
+ * while a todo is selected (App sets .app--detail-open). TodoDetailView's OVERLAY_QUERY
+ * must match this breakpoint.
+ */
+@media (max-width: 1023.98px) {
+  .main {
+    position: relative;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .list-pane {
+    border-right: 0;
+  }
+
+  .detail-pane {
+    position: absolute;
+    inset: 0 0 0 auto;
+    z-index: 15;
+    width: min(36rem, 100%);
+    border-left: 1px solid var(--color-border);
+    box-shadow: var(--shadow-lg);
+    animation: slide-in-right 180ms ease-out;
+  }
+
+  .app:not(.app--detail-open) .detail-pane {
+    display: none;
+  }
+}
+
+/*
+ * < 768px: the sidebar becomes an off-screen drawer opened with the ☰ button.
+ * Closed, it is visibility: hidden so its links leave the Tab order. The FAB stays on screen.
+ */
+@media (max-width: 767.98px) {
+  .app {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'header'
+      'main';
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: -100%;
+    z-index: 30;
+    width: min(18rem, 85vw);
+    border-right: 0;
+    box-shadow: var(--shadow-lg);
+    visibility: hidden;
+    transition:
+      left 200ms ease,
+      visibility 0s linear 200ms;
+  }
+
+  .app--nav-open .sidebar {
+    left: 0;
+    visibility: visible;
+    transition: left 200ms ease;
+  }
+
+  .app-header__menu {
+    display: inline-grid;
+  }
+
+  .search {
+    padding: 0 var(--space-3);
+  }
+
+  .app-header__bell {
+    width: 3rem;
+  }
+
+  .user-chip {
+    padding: 0 var(--space-3);
+  }
+
+  .user-chip__name,
+  .user-chip__chevron {
+    display: none;
+  }
+
+  .detail-pane {
+    width: 100%;
+    border-left: 0;
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    transform: translateX(2rem);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .detail-pane,
+  .sidebar {
+    animation: none;
+    transition: none;
+  }
 }

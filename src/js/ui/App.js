@@ -1,6 +1,6 @@
 import { TodoQuery } from '../core/TodoQuery';
 import { EVENTS, PROJECT_COLORS, SMART_LISTS, SMART_LIST_ITEMS } from '../utils/constants';
-import { formatDueLabel } from '../utils/dateFormat';
+import { formatDueLabel, isOverdue } from '../utils/dateFormat';
 import { ConfirmModal } from './components/ConfirmModal';
 import { DropdownMenu } from './components/DropdownMenu';
 import { Header } from './components/Header';
@@ -37,6 +37,7 @@ function toRow({ todo, project }, { withProject, now }) {
     completed: todo.completed,
     important: todo.important,
     dueLabel: formatDueLabel(todo.dueDate, now),
+    overdue: !todo.completed && isOverdue(todo.dueDate, now),
     hasNotes: todo.notes.trim() !== '',
     checklist: steps.length
       ? { done: steps.filter((item) => item.done).length, total: steps.length }
@@ -88,12 +89,21 @@ export class App {
   #activeView;
   #selectedTodoId = null;
   #searchQuery = '';
+  /** Sidebar drawer state (only visible on narrow screens, see layout.css). */
+  #navOpen = false;
+  #onDocumentKeydown = (event) => {
+    // Esc closes the drawer, unless a modal is open (it handles Esc itself).
+    if (event.key !== 'Escape' || !this.#navOpen || document.querySelector('dialog[open]')) return;
+    this.#setNavOpen(false, { focus: true });
+  };
 
   /**
    * @param {object} options
    * @param {import('../core/ProjectManager').ProjectManager} options.manager
    * @param {import('../core/EventBus').EventBus} options.bus
-   * @param {{ header: HTMLElement, sidebar: HTMLElement, list: HTMLElement, detail: HTMLElement }} options.panes
+   * @param {{ app: HTMLElement, header: HTMLElement, sidebar: HTMLElement, list: HTMLElement,
+   *   detail: HTMLElement, scrim?: HTMLElement }} options.panes `app` gets the layout state classes
+   *   (`app--detail-open`, `app--nav-open`); `scrim` covers the page behind the open drawer
    * @param {{ type: 'smart'|'project', id: string }|null} [options.initialView] e.g. the saved activeView
    * @param {(view: { type: string, id: string }) => void} [options.onViewChange]
    * @param {TodoQuery} [options.query]
@@ -140,10 +150,17 @@ export class App {
     if (this.#unsubscribe) return this;
     this.#header = new Header(this.#panes.header, {
       onSearch: (query) => this.setSearchQuery(query),
+      onToggleNav: () => this.#setNavOpen(!this.#navOpen, { focus: true }),
     }).render();
     this.#sidebar = new Sidebar(this.#panes.sidebar, {
-      onSelectSmartList: (id) => this.showSmartList(id),
-      onSelectProject: (projectId) => this.showProject(projectId),
+      onSelectSmartList: (id) => {
+        this.showSmartList(id);
+        this.#afterNavPick();
+      },
+      onSelectProject: (projectId) => {
+        this.showProject(projectId);
+        this.#afterNavPick();
+      },
       onNewProject: () => this.#openProjectForm(),
       onNewTodo: () => this.#openTodoForm(),
     }).mount();
@@ -158,19 +175,23 @@ export class App {
       onToggleImportant: (todoId) => this.#manager.toggleTodoImportant(todoId),
       onMove: (todoId, projectId) => this.#manager.moveTodo(todoId, projectId),
       onDelete: (todoId) => this.#confirmDeleteTodo(todoId),
+      onClose: (todoId) => this.#closeDetail(todoId),
       onAddStep: (todoId, text) => this.#manager.addChecklistItem(todoId, text),
       onToggleStep: (todoId, itemId) => this.#manager.toggleChecklistItem(todoId, itemId),
       onRemoveStep: (todoId, itemId) => this.#manager.removeChecklistItem(todoId, itemId),
     });
+    this.#panes.scrim?.addEventListener('click', () => this.#setNavOpen(false, { focus: true }));
+    document.addEventListener('keydown', this.#onDocumentKeydown);
     this.#unsubscribe = this.#bus.on(EVENTS.STATE_CHANGED, () => this.render());
     this.render();
     return this;
   }
 
-  /** Stops listening for data changes. */
+  /** Stops listening for data changes and keys. */
   unmount() {
     this.#unsubscribe?.();
     this.#unsubscribe = null;
+    document.removeEventListener('keydown', this.#onDocumentKeydown);
   }
 
   // ── View actions (the callbacks components receive) ────────────────────────
@@ -204,6 +225,8 @@ export class App {
   /** Re-draws every pane from the current data and view state. */
   render() {
     this.#reconcile();
+    // On narrow screens the detail pane is an overlay that is only shown with a selection.
+    this.#panes.app?.classList.toggle('app--detail-open', this.#selectedTodoId !== null);
     // Keeps the search field in step when the app ends a search (e.g. a sidebar click).
     this.#header?.setQuery(this.#searchQuery);
     this.#renderSidebar();
@@ -258,6 +281,36 @@ export class App {
       return this.#manager.getProject(this.#activeView.id).name;
     }
     return SMART_LIST_ITEMS.find((item) => item.id === this.#activeView.id).label;
+  }
+
+  // ── Narrow-screen layout ───────────────────────────────────────────────────
+
+  /** Opens or closes the sidebar drawer. With `focus`, moves focus into it / back to ☰. */
+  #setNavOpen(open, { focus = false } = {}) {
+    if (open === this.#navOpen) return;
+    this.#navOpen = open;
+    this.#panes.app?.classList.toggle('app--nav-open', open);
+    if (this.#panes.scrim) this.#panes.scrim.hidden = !open;
+    this.#header?.setNavOpen(open);
+    if (!focus) return;
+    if (open) {
+      this.#panes.sidebar.querySelector('.nav-item--active, .nav-item')?.focus();
+    } else {
+      this.#header?.menuButton?.focus();
+    }
+  }
+
+  /** After picking a list in the open drawer: close it and continue in the list. */
+  #afterNavPick() {
+    if (!this.#navOpen) return;
+    this.#setNavOpen(false);
+    this.#listView?.focusTitle();
+  }
+
+  /** Closes the detail overlay and puts focus back on the todo's row. */
+  #closeDetail(todoId) {
+    this.selectTodo(null);
+    if (!this.#listView?.focusRow(todoId)) this.#listView?.focusTitle();
   }
 
   /** "New project": creates the project and switches to it. */
@@ -389,6 +442,7 @@ export class App {
         priority: todo.priority,
         completed: todo.completed,
         important: todo.important,
+        overdue: !todo.completed && isOverdue(todo.dueDate),
         notes: todo.notes,
         checklist: todo.checklist.map(({ id, text, done }) => ({ id, text, done })),
       },

@@ -97,6 +97,10 @@
   height: 1.1em;
 }
 
+.todo-item__due--overdue {
+  color: var(--color-danger);
+}
+
 .todo-item__project {
   min-width: 0;
 }
@@ -107,4 +111,24 @@
   flex-shrink: 0;
   border-radius: 2px;
   background: var(--project-color, var(--color-text-muted));
+}
+
+.list-header__title:focus {
+  outline: none; /* focused by script only (tabindex -1), e.g. after picking a list */
+}
+
+/* Narrow screens: tighter padding, and room at the bottom so the floating FAB
+   doesn't cover the last row. */
+@media (max-width: 767.98px) {
+  .list-header {
+    padding-left: var(--space-5);
+  }
+
+  .todo-item {
+    padding-left: var(--space-4);
+  }
+
+  .todo-list {
+    padding-bottom: 6rem;
+  }
 }

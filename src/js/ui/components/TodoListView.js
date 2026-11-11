@@ -9,6 +9,7 @@ import { iconElement } from '../icons';
  * @property {boolean} completed
  * @property {boolean} important
  * @property {string} dueLabel e.g. 'Today', 'Tue, 1 May'; '' when there is no due date
+ * @property {boolean} overdue open todo whose due date has passed (label shown in red)
  * @property {boolean} hasNotes
  * @property {{ done: number, total: number }|null} checklist null when the todo has no steps
  * @property {{ name: string, color: string }|null} project shown in smart lists and search
@@ -47,10 +48,16 @@ export class TodoListView {
    * @param {string} data.emptyMessage shown when there are no rows
    */
   render({ title, menu = null, rows, selectedTodoId, emptyMessage }) {
-    preserveFocus(this.#root, () => {
+    const focusedRow = this.#focusedRow();
+    const restored = preserveFocus(this.#root, () => {
       clear(this.#root).append(
         el('div', { class: 'list-header' }, [
-          el('h1', { class: 'list-header__title', attrs: { id: 'list-title' } }, title),
+          // tabindex -1: focus can be moved here (e.g. after switching lists), but it isn't a Tab stop.
+          el(
+            'h1',
+            { class: 'list-header__title', attrs: { id: 'list-title', tabindex: '-1' } },
+            title,
+          ),
           menu,
         ]),
         rows.length === 0
@@ -62,6 +69,41 @@ export class TodoListView {
             ),
       );
     });
+    // The focused row left the list (e.g. completed in Overview): move focus to the row that
+    // took its place, or to the list title, instead of losing it to <body>.
+    if (focusedRow && !restored) this.#focusNear(focusedRow);
+  }
+
+  /** Moves focus to the list title (e.g. after the user picked another list). */
+  focusTitle() {
+    this.#root.querySelector('.list-header__title')?.focus();
+  }
+
+  /** Focuses a row's control: `part` is 'select', 'check' or 'star'. Returns false if missing. */
+  focusRow(todoId, part = 'select') {
+    const target = this.#root.querySelector(
+      `[data-focus-key="${CSS.escape(`${part}:${todoId}`)}"]`,
+    );
+    target?.focus();
+    return Boolean(target);
+  }
+
+  /** `{ index, part }` of the row control that has focus, or null. */
+  #focusedRow() {
+    const active = document.activeElement;
+    const row = active?.closest?.('.todo-item');
+    if (!row || !this.#root.contains(row)) return null;
+    const rows = [...this.#root.querySelectorAll('.todo-item')];
+    const part = (active.dataset.focusKey ?? 'select:').split(':')[0];
+    return { index: rows.indexOf(row), part };
+  }
+
+  #focusNear({ index, part }) {
+    const rows = this.#root.querySelectorAll('.todo-item');
+    const row = rows[Math.min(index, rows.length - 1)];
+    const target = row?.querySelector(`[data-focus-key^="${part}:"]`);
+    if (target) target.focus();
+    else this.focusTitle();
   }
 
   #row(row, selected) {
@@ -127,12 +169,12 @@ export class TodoListView {
   }
 
   /** Second line: due label, notes / checklist indicators and (in smart lists) the project. */
-  #meta({ dueLabel, hasNotes, checklist, project }) {
+  #meta({ dueLabel, overdue, hasNotes, checklist, project }) {
     const parts = [
       dueLabel &&
-        el('span', { class: 'todo-item__meta-part' }, [
+        el('span', { class: ['todo-item__meta-part', overdue && 'todo-item__due--overdue'] }, [
           iconElement('calendar'),
-          el('span', { class: 'visually-hidden' }, 'Due '),
+          el('span', { class: 'visually-hidden' }, overdue ? 'Overdue, was due ' : 'Due '),
           dueLabel,
         ]),
       hasNotes &&

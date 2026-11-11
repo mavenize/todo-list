@@ -1,3 +1,4 @@
+import { readableTextColor } from '../../utils/color';
 import { clear, el, preserveFocus } from '../dom';
 import { iconElement } from '../icons';
 
@@ -109,8 +110,11 @@ export class Sidebar {
               badge(counts.projects[project.id], 'nav-item__badge--project'),
             ],
           });
-          // setProperty keeps the user-chosen color a single CSS value.
-          item.firstElementChild.style.setProperty('--project-color', project.color);
+          // setProperty keeps the user-chosen color a single CSS value. The badge text is
+          // dark or white, whichever reads better on that color.
+          const button = item.firstElementChild;
+          button.style.setProperty('--project-color', project.color);
+          button.style.setProperty('--project-text', readableTextColor(project.color));
           return item;
         }),
       ),

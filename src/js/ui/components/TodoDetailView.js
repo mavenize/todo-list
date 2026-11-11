@@ -6,13 +6,16 @@ import { priorityField } from './priorityField';
 /**
  * @typedef {object} TodoDetail Plain data for the detail pane (built by App).
  * @property {{ id: string, title: string, description: string, dueDate: string|null,
- *   priority: string, completed: boolean, important: boolean, notes: string,
+ *   priority: string, completed: boolean, important: boolean, overdue: boolean, notes: string,
  *   checklist: ReadonlyArray<{ id: string, text: string, done: boolean }> }} todo
  * @property {string} projectId
  * @property {ReadonlyArray<{ id: string, name: string }>} projects choices for "move to project"
  */
 
 const PRIORITY_CLASSES = ['priority--low', 'priority--medium', 'priority--high'];
+
+/** Below this width the pane is an overlay (keep in sync with the breakpoint in layout.css). */
+const OVERLAY_QUERY = '(max-width: 1023.98px)';
 
 /**
  * Right pane: view and edit one todo. Edits are saved on change/blur through callbacks;
@@ -40,10 +43,19 @@ export class TodoDetailView {
    * @param {(todoId: string, text: string) => void} callbacks.onAddStep
    * @param {(todoId: string, itemId: string) => void} callbacks.onToggleStep
    * @param {(todoId: string, itemId: string) => void} callbacks.onRemoveStep
+   * @param {(todoId: string) => void} callbacks.onClose closes the overlay (narrow screens)
    */
   constructor(root, callbacks) {
     this.#root = root;
     this.#callbacks = callbacks;
+    // In overlay mode, Esc closes the pane (unless a control inside already used the key).
+    root.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape' || event.defaultPrevented || !this.#data) return;
+      if (window.matchMedia(OVERLAY_QUERY).matches) {
+        event.preventDefault();
+        this.#callbacks.onClose(this.#data.todo.id);
+      }
+    });
   }
 
   /** @param {TodoDetail|null} data null when no todo is selected */
@@ -90,6 +102,7 @@ export class TodoDetailView {
             event.preventDefault();
             refs.title.blur();
           } else if (event.key === 'Escape') {
+            event.preventDefault(); // only undo the edit; don't also close the overlay
             refs.title.value = this.#data.todo.title;
             refs.title.blur();
           }
@@ -102,6 +115,16 @@ export class TodoDetailView {
       class: 'field__error detail__title-error',
       attrs: { id: 'detail-title-error', 'aria-live': 'polite' },
     });
+    // Shown only when the pane is an overlay (narrow screens), see todo-detail.css.
+    const close = el(
+      'button',
+      {
+        class: 'icon-button detail__close',
+        attrs: { type: 'button', 'aria-label': 'Close details', title: 'Close details' },
+        on: { click: () => this.#callbacks.onClose(id) },
+      },
+      iconElement('close'),
+    );
     refs.star = el(
       'button',
       {
@@ -192,6 +215,7 @@ export class TodoDetailView {
           el('div', { class: 'detail__title-wrap' }, [refs.title, refs.titleError]),
           refs.star,
           menu,
+          close,
         ]),
         el('div', { class: 'detail__props' }, [
           el('div', { class: 'field' }, [
@@ -248,6 +272,9 @@ export class TodoDetailView {
     if (idle(refs.title)) refs.title.value = todo.title;
     if (idle(refs.description)) refs.description.value = todo.description;
     if (idle(refs.dueDate)) refs.dueDate.value = todo.dueDate ?? '';
+    refs.dueDate.classList.toggle('field__input--overdue', todo.overdue);
+    if (todo.overdue) refs.dueDate.setAttribute('aria-description', 'Overdue');
+    else refs.dueDate.removeAttribute('aria-description');
     if (idle(refs.notes)) refs.notes.value = todo.notes;
     this.#updateNotesButton();
     this.#renderSteps(todo.checklist);

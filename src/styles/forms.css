@@ -57,6 +57,10 @@
   gap: var(--space-5);
 }
 
+.field__input--overdue {
+  color: var(--color-danger);
+}
+
 .field__input[aria-invalid='true'] {
   border-color: var(--color-danger);
 }

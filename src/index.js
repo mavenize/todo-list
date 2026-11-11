@@ -38,6 +38,8 @@ const app = new App({
   manager,
   bus,
   panes: {
+    app: document.getElementById('app'),
+    scrim: document.getElementById('scrim'),
     header: document.getElementById('app-header'),
     sidebar: document.getElementById('sidebar'),
     list: document.getElementById('list-pane'),

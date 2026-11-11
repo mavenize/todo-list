@@ -6,6 +6,8 @@ import { iconMarkup } from '../icons';
  * Top bar across the list and detail panes: the search field plus a static
  * notification bell and user avatar. The bell and avatar have no behavior (out of scope).
  *
+ * On narrow screens a ☰ button (hidden by CSS on wider ones) toggles the sidebar drawer.
+ *
  * Search: typing reports the query through `onSearch` after a short pause (debounced).
  * Emptying the field reports '' right away, and Esc clears it, so the list returns to
  * the previous view immediately.
@@ -13,18 +15,25 @@ import { iconMarkup } from '../icons';
 export class Header {
   #root;
   #onSearch;
+  #onToggleNav;
   #searchInput = null;
+  #menuButton = null;
   #debouncedSearch;
 
   /**
    * @param {HTMLElement} root the `<header>` element to render into
    * @param {object} [options]
    * @param {(query: string) => void} [options.onSearch]
+   * @param {() => void} [options.onToggleNav] the ☰ button was pressed
    * @param {number} [options.debounceMs]
    */
-  constructor(root, { onSearch = () => {}, debounceMs = SEARCH_DEBOUNCE_MS } = {}) {
+  constructor(
+    root,
+    { onSearch = () => {}, onToggleNav = () => {}, debounceMs = SEARCH_DEBOUNCE_MS } = {},
+  ) {
     this.#root = root;
     this.#onSearch = onSearch;
+    this.#onToggleNav = onToggleNav;
     this.#debouncedSearch = debounce((query) => this.#onSearch(query), debounceMs);
   }
 
@@ -33,9 +42,23 @@ export class Header {
     return this.#searchInput;
   }
 
+  /** The ☰ button, available after render(). */
+  get menuButton() {
+    return this.#menuButton;
+  }
+
+  /** Reflects the drawer state on the ☰ button. */
+  setNavOpen(open) {
+    this.#menuButton?.setAttribute('aria-expanded', String(open));
+  }
+
   render() {
     // Static markup only: nothing here comes from user data.
     this.#root.innerHTML = `
+      <button class="icon-button app-header__menu" type="button" aria-label="Lists and projects"
+        aria-expanded="false" aria-controls="sidebar">
+        ${iconMarkup('menu')}
+      </button>
       <label class="search">
         ${iconMarkup('search')}
         <span class="visually-hidden">Search todos</span>
@@ -46,12 +69,15 @@ export class Header {
         ${iconMarkup('bell')}
         <span class="app-header__bell-dot"></span>
       </span>
-      <div class="user-chip" aria-label="Signed in as Guest">
+      <div class="user-chip">
         <span class="user-chip__avatar" aria-hidden="true">G</span>
-        <span class="user-chip__name">Guest</span>
+        <span class="visually-hidden">Signed in as Guest</span>
+        <span class="user-chip__name" aria-hidden="true">Guest</span>
         ${iconMarkup('chevronDown', 'user-chip__chevron')}
       </div>
     `;
+    this.#menuButton = this.#root.querySelector('.app-header__menu');
+    this.#menuButton.addEventListener('click', () => this.#onToggleNav());
     this.#searchInput = this.#root.querySelector('.search__input');
     this.#searchInput.addEventListener('input', () => this.#onInput());
     this.#searchInput.addEventListener('keydown', (event) => {

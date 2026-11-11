@@ -10,16 +10,17 @@
 
   /* Text */
   --color-text: #3d4451;
-  --color-text-muted: #8a94a6;
-  --color-text-subtle: #b3b9c5;
+  --color-text-muted: #66707f; /* ≥ 4.5:1 on --color-bg and --color-surface */
+  --color-text-subtle: #b3b9c5; /* decorative only (borders, outline icons), not for text */
 
   /* Accents */
   --color-accent: #4a7cf6;
   --color-accent-soft: #e4ecfd;
-  --color-accent-hover: #3768e8;
+  --color-accent-strong: #2d5fd8; /* blue text and white-on-blue buttons (≥ 4.5:1) */
+  --color-accent-hover: #244ebd;
   --color-brand: #f0643f;
-  --color-danger: #e5484d;
-  --color-danger-hover: #d13a3f;
+  --color-danger: #d02f35; /* ≥ 4.5:1 as text on white and with white text */
+  --color-danger-hover: #b5262b;
   --color-danger-soft: #fdecec;
   --color-notification: #f0643f;
   --color-star: #f5a623;

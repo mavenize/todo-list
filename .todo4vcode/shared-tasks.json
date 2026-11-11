@@ -1544,64 +1544,72 @@
         "stage-7-polish",
         "feature",
         "T21",
+        "src/styles/layout.css:146-261",
         "src/styles/",
-        "src/js/ui/components/"
+        "src/js/ui/App.js:286-315",
+        "src/js/ui/App.js:94-98",
+        "src/js/ui/components/TodoListView.js:49-108",
+        "src/js/ui/components/TodoDetailView.js:18",
+        "src/js/ui/components/Header.js",
+        "src/js/utils/color.js:1-44",
+        "tests/utils/color.test.js:1-64",
+        "src/template.html:11-12"
       ],
       "priority": "Should",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "createdAt": 1794386838207,
       "order": 22000,
       "subtasks": [
         {
           "id": "t21-dod1",
           "text": "Breakpoints: detail pane overlays on < 1024px, sidebar collapses on < 768px",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t21-dod2",
           "text": "All inputs labelled; buttons have aria-labels",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t21-dod3",
           "text": "Visible focus styles; Enter/Esc in modals and menus",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t21-dod4",
           "text": "Overdue due labels styled red",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t21-dod5",
           "text": "npm run lint passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t21-dod6",
           "text": "npm test passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t21-dod7",
           "text": "npm run build succeeds",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t21-dod8",
           "text": "No DOM access in models/core/storage/utils",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t21-dod9",
           "text": "Code-link tags updated to real line ranges",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t21-dod10",
           "text": "Commit message proposed to user",
-          "completed": false
+          "completed": true
         }
       ]
     },

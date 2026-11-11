@@ -96,7 +96,7 @@
 }
 
 .detail__description::placeholder {
-  color: var(--color-text-subtle);
+  color: var(--color-text-muted);
 }
 
 /* Steps (checklist): "+ Add step" input, then one row per step. */
@@ -109,7 +109,7 @@
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  color: var(--color-accent);
+  color: var(--color-accent-strong);
   cursor: text;
 }
 
@@ -129,7 +129,7 @@
 }
 
 .steps__input::placeholder {
-  color: var(--color-accent);
+  color: var(--color-accent-strong);
 }
 
 .steps__input:focus {
@@ -139,7 +139,7 @@
 }
 
 .steps__input:focus::placeholder {
-  color: var(--color-text-subtle);
+  color: var(--color-text-muted);
 }
 
 .step {
@@ -157,7 +157,7 @@
 
 .step__check {
   --check-size: 1.25rem;
-  --ring-color: var(--color-text-subtle);
+  --ring-color: var(--color-text-muted);
 }
 
 .step__text {
@@ -168,7 +168,7 @@
 }
 
 .step--done .step__text {
-  color: var(--color-text-subtle);
+  color: var(--color-text-muted);
   text-decoration: line-through;
 }
 
@@ -215,6 +215,9 @@
 .notes__input:focus {
   outline: none;
   border-color: var(--color-accent);
+  box-shadow:
+    0 0 0 3px var(--color-surface),
+    0 0 0 5px var(--color-accent);
 }
 
 .notes__save {
@@ -253,7 +256,7 @@
   gap: var(--space-3);
   height: 100%;
   padding: var(--space-8);
-  color: var(--color-text-subtle);
+  color: var(--color-text-muted);
   text-align: center;
 }
 
@@ -261,4 +264,32 @@
   width: 3rem;
   height: 3rem;
   stroke-width: 1.25;
+}
+
+/* Close button: only when the pane is an overlay (< 1024px). */
+.detail__close {
+  display: none;
+}
+
+@media (max-width: 1023.98px) {
+  .detail__close {
+    display: inline-grid;
+  }
+}
+
+/* Phones: less padding, and the props/steps/notes no longer indent under the checkbox. */
+@media (max-width: 767.98px) {
+  .detail {
+    padding: var(--space-5) var(--space-4) var(--space-8);
+  }
+
+  .detail__props,
+  .detail__props + .field {
+    padding-left: 0;
+  }
+
+  .steps,
+  .notes {
+    margin-left: 0;
+  }
 }
