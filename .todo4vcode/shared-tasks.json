@@ -474,64 +474,64 @@
     {
       "id": "todoui-t07",
       "text": "T07 · EventBus",
-      "description": "Goal: Minimal pub/sub to decouple logic from UI and storage.\n\nDefinition of Done:\n- EventBus class: on(event, fn) returns unsubscribe, off, emit(event, payload)\n- A throwing handler does not stop others\n- Unit tests\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: feat(core): add EventBus for logic/UI decoupling\n\nCode links: line ranges are estimates until the task is done.",
+      "description": "Goal: Minimal pub/sub to decouple logic from UI and storage.\n\nDefinition of Done:\n- EventBus class: on(event, fn) returns unsubscribe, off, emit(event, payload)\n- A throwing handler does not stop others\n- Unit tests\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: feat(core): add EventBus for logic/UI decoupling\n\nCode links: verified line ranges.",
       "tags": [
         "stage-3-logic",
         "feature",
         "T07",
-        "src/js/core/EventBus.js:1-40",
-        "tests/core/EventBus.test.js:1-50"
+        "src/js/core/EventBus.js:1-59",
+        "tests/core/EventBus.test.js:1-147"
       ],
       "priority": "Must",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "createdAt": 1794386838193,
       "order": 8000,
       "subtasks": [
         {
           "id": "t07-dod1",
           "text": "EventBus class: on(event, fn) returns unsubscribe, off, emit(event, payload)",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t07-dod2",
           "text": "A throwing handler does not stop others",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t07-dod3",
           "text": "Unit tests",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t07-dod4",
           "text": "npm run lint passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t07-dod5",
           "text": "npm test passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t07-dod6",
           "text": "npm run build succeeds",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t07-dod7",
           "text": "No DOM access in models/core/storage/utils",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t07-dod8",
           "text": "Code-link tags updated to real line ranges",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t07-dod9",
           "text": "Commit message proposed to user",
-          "completed": false
+          "completed": true
         }
       ]
     },
