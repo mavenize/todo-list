@@ -102,7 +102,7 @@ webpack.config.js · babel.config.js · eslint.config.js · .prettierrc · packa
 | `ChecklistItem` | `id`, `text`, `done` | `toggle()`, `toJSON()`, `fromJSON()` |
 | `Todo` | `id`, `title`, `description`, `dueDate`, `priority`, `notes`, `checklist[]`, `completed`, `important`, `createdAt` | `update(fields)`, `toggleComplete()`, `toggleImportant()`, `setPriority()`, `addChecklistItem()`, `toggleChecklistItem()`, `removeChecklistItem()`, `toJSON()`, `fromJSON()` |
 | `Project` | `id`, `name`, `color`, `isDefault`, `todos[]` | `addTodo()`, `removeTodo()`, `getTodo()`, `rename()`, `toJSON()`, `fromJSON()` |
-| `ProjectManager` | `projects[]`, `bus` | `createProject()`, `renameProject()`, `deleteProject()`, `addTodo()`, `updateTodo()`, `deleteTodo()`, `moveTodo()`, `findTodo()`, `toJSON()`, `fromJSON()` |
+| `ProjectManager` | `projects[]`, `bus`, `defaultProject` | `createProject()`, `renameProject()`, `deleteProject()`, `getProject()`, `addTodo()`, `updateTodo()`, `deleteTodo()`, `toggleTodoComplete()`, `toggleTodoImportant()`, `moveTodo()`, `findTodo()`, `addChecklistItem()`, `toggleChecklistItem()`, `removeChecklistItem()`, `toJSON()`, `fromJSON()` |
 | `TodoQuery` | (works on a `ProjectManager`) | `smartList(type)`, `search(query)`, `counts()` |
 
 Smart list rules:

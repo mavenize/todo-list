@@ -538,84 +538,84 @@
     {
       "id": "todoui-t08",
       "text": "T08 · ProjectManager: projects and todos CRUD",
-      "description": "Goal: Single entry point for all state changes.\n\nDefinition of Done:\n- Always has a default Inbox project (created if missing, cannot be deleted)\n- createProject, renameProject, deleteProject (deletes its todos)\n- addTodo(projectId, data), updateTodo, deleteTodo, toggle helpers, moveTodo(todoId, toProjectId)\n- findTodo(todoId) → { project, todo }\n- Every mutation emits \"state:changed\"\n- toJSON / static fromJSON(data, bus)\n- Unit tests incl. emitted events\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: feat(core): add ProjectManager with project and todo CRUD\n\nCode links: line ranges are estimates until the task is done.",
+      "description": "Goal: Single entry point for all state changes.\n\nDefinition of Done:\n- Always has a default Inbox project (created if missing, cannot be deleted)\n- createProject, renameProject, deleteProject (deletes its todos)\n- addTodo(projectId, data), updateTodo, deleteTodo, toggle helpers, moveTodo(todoId, toProjectId)\n- findTodo(todoId) → { project, todo }\n- Every mutation emits \"state:changed\"\n- toJSON / static fromJSON(data, bus)\n- Unit tests incl. emitted events\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: feat(core): add ProjectManager with project and todo CRUD\n\nCode links: verified line ranges.",
       "tags": [
         "stage-3-logic",
         "feature",
         "T08",
-        "src/js/core/ProjectManager.js:1-160",
-        "tests/core/ProjectManager.test.js:1-160"
+        "src/js/core/ProjectManager.js:1-216",
+        "tests/core/ProjectManager.test.js:1-362"
       ],
       "priority": "Must",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "createdAt": 1794386838194,
       "order": 9000,
       "subtasks": [
         {
           "id": "t08-dod1",
           "text": "Always has a default Inbox project (created if missing, cannot be deleted)",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t08-dod2",
           "text": "createProject, renameProject, deleteProject (deletes its todos)",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t08-dod3",
           "text": "addTodo(projectId, data), updateTodo, deleteTodo, toggle helpers, moveTodo(todoId, toProjectId)",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t08-dod4",
           "text": "findTodo(todoId) → { project, todo }",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t08-dod5",
           "text": "Every mutation emits \"state:changed\"",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t08-dod6",
           "text": "toJSON / static fromJSON(data, bus)",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t08-dod7",
           "text": "Unit tests incl. emitted events",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t08-dod8",
           "text": "npm run lint passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t08-dod9",
           "text": "npm test passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t08-dod10",
           "text": "npm run build succeeds",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t08-dod11",
           "text": "No DOM access in models/core/storage/utils",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t08-dod12",
           "text": "Code-link tags updated to real line ranges",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t08-dod13",
           "text": "Commit message proposed to user",
-          "completed": false
+          "completed": true
         }
       ]
     },
