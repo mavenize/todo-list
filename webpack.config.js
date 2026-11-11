@@ -10,6 +10,9 @@ module.exports = (env, argv) => {
       filename: isProduction ? 'main.[contenthash].js' : 'main.js',
       path: path.resolve(__dirname, 'dist'),
       clean: true,
+      // Relative URLs in production, so the bundle loads from a subpath such as GitHub Pages'
+      // https://<user>.github.io/<repo>/ as well as from the domain root.
+      publicPath: isProduction ? './' : '/',
     },
     devtool: isProduction ? 'source-map' : 'eval-source-map',
     devServer: {

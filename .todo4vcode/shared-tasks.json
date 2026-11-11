@@ -1688,12 +1688,14 @@
         "stage-8-release",
         "chore",
         "T23",
-        "package.json:1-60",
-        "webpack.config.js:1-50",
-        "README.md:1"
+        "package.json:16-17",
+        "package.json:27",
+        "webpack.config.js:13-15",
+        "README.md:5",
+        "README.md:54-60"
       ],
       "priority": "Could",
-      "status": "Todo",
+      "status": "In Progress",
       "completed": false,
       "createdAt": 1794386838209,
       "order": 24000,
@@ -1701,17 +1703,17 @@
         {
           "id": "t23-dod1",
           "text": "gh-pages dev dependency + \"deploy\" script (build then publish dist/)",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t23-dod2",
           "text": "publicPath works under /<repo>/",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t23-dod3",
           "text": "Live URL in README",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t23-dod4",
@@ -1721,27 +1723,27 @@
         {
           "id": "t23-dod5",
           "text": "npm run lint passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t23-dod6",
           "text": "npm test passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t23-dod7",
           "text": "npm run build succeeds",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t23-dod8",
           "text": "No DOM access in models/core/storage/utils",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t23-dod9",
           "text": "Code-link tags updated to real line ranges",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t23-dod10",

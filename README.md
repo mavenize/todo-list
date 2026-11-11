@@ -2,6 +2,8 @@
 
 A todo list app with projects, smart lists and search, built with plain JavaScript (ES modules and classes), webpack and `localStorage`. The layout follows the mockup in [TodosUI.png](TodosUI.png): sidebar, todo list and detail pane.
 
+**Live demo:** https://mavenize.github.io/todo-list/
+
 ![TodoUI on desktop: sidebar with smart lists and projects, a project's todo list, and the detail pane with steps and notes](docs/screenshots/desktop.png)
 
 ## Features
@@ -49,6 +51,13 @@ npm run dev      # http://localhost:8080 with live reload
 | `npm run lint` / `npm run lint:fix` | ESLint |
 | `npm run format` / `npm run format:check` | Prettier (Markdown is excluded) |
 | `npm test` / `npm run test:watch` / `npm run test:coverage` | Jest unit tests |
+| `npm run deploy` | Build, then publish `dist/` to the `gh-pages` branch (GitHub Pages) |
+
+## Deployment
+
+`npm run deploy` builds the app and pushes `dist/` to the `gh-pages` branch with [gh-pages](https://github.com/tschaub/gh-pages). In the repository's **Settings → Pages**, set the source to **Deploy from a branch**, branch `gh-pages`, folder `/ (root)`. The production build uses relative asset URLs, so it works from the `/todo-list/` subpath.
+
+Each visitor's todos are saved in their own browser's `localStorage`; nothing is sent to a server.
 
 ## Architecture
 
