@@ -1005,64 +1005,69 @@
         "stage-6-ui-features",
         "feature",
         "T14",
-        "src/js/ui/components/Sidebar.js:1-120",
-        "src/styles/sidebar.css:1-100"
+        "src/js/ui/components/Sidebar.js:1-150",
+        "src/styles/sidebar.css:1-168",
+        "src/js/ui/icons.js:1-51",
+        "src/js/ui/App.js:96-105",
+        "src/js/ui/App.js:193-209",
+        "src/template.html:10",
+        "src/index.js:7"
       ],
       "priority": "Must",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "createdAt": 1794386838200,
       "order": 15000,
       "subtasks": [
         {
           "id": "t14-dod1",
           "text": "Logo, smart lists with icons and count badges",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t14-dod2",
           "text": "Projects with color dot and open-todo count",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t14-dod3",
           "text": "Active item highlighted; clicking switches view",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t14-dod4",
           "text": "\"+ New project\" entry and orange FAB (+ new todo)",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t14-dod5",
           "text": "npm run lint passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t14-dod6",
           "text": "npm test passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t14-dod7",
           "text": "npm run build succeeds",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t14-dod8",
           "text": "No DOM access in models/core/storage/utils",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t14-dod9",
           "text": "Code-link tags updated to real line ranges",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t14-dod10",
           "text": "Commit message proposed to user",
-          "completed": false
+          "completed": true
         }
       ]
     },

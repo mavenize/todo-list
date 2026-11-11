@@ -4,6 +4,7 @@
 import './styles/variables.css';
 import './styles/base.css';
 import './styles/layout.css';
+import './styles/sidebar.css';
 import { EventBus } from './js/core/EventBus';
 import { hydrateProjectManager } from './js/core/hydrate';
 import { StorageService } from './js/storage/StorageService';

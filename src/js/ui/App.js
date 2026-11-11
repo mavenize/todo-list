@@ -1,6 +1,7 @@
 import { TodoQuery } from '../core/TodoQuery';
 import { EVENTS, SMART_LISTS, SMART_LIST_ITEMS } from '../utils/constants';
 import { Header } from './components/Header';
+import { Sidebar } from './components/Sidebar';
 import { clear, el } from './dom';
 
 const VIEW_TYPES = Object.freeze({ SMART: 'smart', PROJECT: 'project' });
@@ -40,6 +41,7 @@ export class App {
   #panes;
   #onViewChange;
   #unsubscribe = null;
+  #sidebar = null;
 
   #activeView;
   #selectedTodoId = null;
@@ -91,10 +93,16 @@ export class App {
 
   // ── Lifecycle ──────────────────────────────────────────────────────────────
 
-  /** Renders the static header, subscribes to data changes and draws the panes. */
+  /** Renders the static header and sidebar frame, subscribes to data changes and draws the panes. */
   mount() {
     if (this.#unsubscribe) return this;
     new Header(this.#panes.header).render();
+    this.#sidebar = new Sidebar(this.#panes.sidebar, {
+      onSelectSmartList: (id) => this.showSmartList(id),
+      onSelectProject: (projectId) => this.showProject(projectId),
+      onNewProject: () => this.#openProjectForm(),
+      onNewTodo: () => this.#openTodoForm(),
+    }).mount();
     this.#unsubscribe = this.#bus.on(EVENTS.STATE_CHANGED, () => this.render());
     this.render();
     return this;
@@ -182,10 +190,22 @@ export class App {
     return SMART_LIST_ITEMS.find((item) => item.id === this.#activeView.id).label;
   }
 
+  #openProjectForm() {
+    // ProjectFormModal is added in T15.
+  }
+
+  #openTodoForm() {
+    // TodoFormModal is added in T17.
+  }
+
   #renderSidebar() {
-    // Sidebar component (smart lists, projects, badges, FAB) is added in T14. It will receive
-    // { smartLists: SMART_LIST_ITEMS, projects, counts: this.#query.counts(), activeView }
-    // and the callbacks showSmartList / showProject.
+    this.#sidebar?.render({
+      smartLists: SMART_LIST_ITEMS,
+      projects: this.#manager.projects.map(({ id, name, color }) => ({ id, name, color })),
+      counts: this.#query.counts(),
+      // Nothing is highlighted while search results are shown.
+      activeView: this.isSearching ? null : this.activeView,
+    });
   }
 
   #renderList() {

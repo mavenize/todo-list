@@ -1,0 +1,168 @@
+/* Sidebar: logo, smart lists, projects, "New project" and the new-todo FAB. */
+
+.sidebar__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: var(--header-height);
+  padding: 0 var(--space-8);
+  flex-shrink: 0;
+  color: var(--color-brand);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.2em;
+}
+
+.sidebar__logo {
+  width: 1em;
+  height: 1em;
+  stroke-width: 2.5;
+}
+
+.sidebar__content {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: var(--space-4) var(--space-3) var(--space-4) 0;
+}
+
+.sidebar__heading {
+  margin: var(--space-6) 0 var(--space-2);
+  padding-left: var(--space-8);
+  color: var(--color-text-subtle);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* One row: icon or color dot, label, optional count badge. */
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  width: 100%;
+  min-height: 2.75rem;
+  padding: var(--space-2) var(--space-3) var(--space-2) var(--space-8);
+  border-radius: 0 var(--radius-pill) var(--radius-pill) 0;
+  color: var(--color-text);
+  text-align: left;
+  transition: background-color var(--transition-fast);
+}
+
+.nav-item:hover {
+  background: var(--color-hover);
+}
+
+.nav-item:focus-visible {
+  outline-offset: -2px;
+}
+
+.nav-item--active,
+.nav-item--active:hover {
+  background: var(--color-accent-soft);
+  font-weight: var(--font-weight-medium);
+}
+
+.nav-item__icon {
+  color: var(--color-text-muted);
+}
+
+.nav-item--active .nav-item__icon {
+  color: var(--color-accent);
+}
+
+.nav-item__label {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Project color dot, sized like an icon so labels line up with the smart lists. */
+.nav-item__dot {
+  display: grid;
+  place-items: center;
+  width: 1.25em;
+  height: 1.25em;
+  flex-shrink: 0;
+}
+
+.nav-item__dot::before {
+  content: '';
+  width: 0.625em;
+  height: 0.625em;
+  border-radius: 3px;
+  background: var(--project-color, var(--color-text-muted));
+}
+
+.nav-item__badge {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.5rem;
+  height: 1.5rem;
+  padding: 0 var(--space-1);
+  border-radius: var(--radius-pill);
+  background: var(--color-text);
+  color: var(--color-surface);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+}
+
+.nav-item__badge--project {
+  background: var(--project-color, var(--color-text));
+}
+
+.sidebar__new-project {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  width: 100%;
+  margin-top: var(--space-2);
+  padding: var(--space-2) var(--space-3) var(--space-2) var(--space-8);
+  border-radius: 0 var(--radius-pill) var(--radius-pill) 0;
+  color: var(--color-accent);
+  text-align: left;
+}
+
+.sidebar__new-project:hover {
+  background: var(--color-hover);
+}
+
+.sidebar__new-project:focus-visible {
+  outline-offset: -2px;
+}
+
+/* Floating "new todo" button, pinned to the bottom of the sidebar. */
+.fab {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 3.5rem;
+  height: 3.5rem;
+  margin: var(--space-4) var(--space-8) var(--space-8);
+  border-radius: 50%;
+  background: var(--color-brand);
+  color: var(--color-surface);
+  box-shadow: var(--shadow-fab);
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.fab:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg), var(--shadow-fab);
+}
+
+.fab:active {
+  transform: translateY(0);
+}
+
+.fab__icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  stroke-width: 2.25;
+}
