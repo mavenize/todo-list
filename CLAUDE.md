@@ -32,6 +32,12 @@ Some of these paths are created by later tasks. If a folder is missing, check wh
 7. **Finish:**
    - Set `status: "Done"` and `completed: true`.
    - Give the user a short summary and the **proposed commit message**, taken from the task's `Commit:` line and adjusted if the work changed.
+   - Give it as a **copy-paste-ready command block**. Use `git add` with the explicit paths the task changed (including `.todo4vcode/shared-tasks.json` and any deleted files), never `git add .` or `-A`. Follow it with `git commit -m "<message>"`. Example:
+     ```bash
+     git add src/js/models/Project.js tests/models/Project.test.js .todo4vcode/shared-tasks.json
+     git commit -m "feat(models): add Project class"
+     ```
+   - If there are unrelated uncommitted changes (for example a docs edit), give them their own block with their own commit.
 8. **Stop.** **Never run `git commit` or `git push`; the user commits.** Wait for the user's go-ahead before starting the next task.
 
 ## Architecture rules (don't break them)
@@ -89,3 +95,4 @@ To add a new task, take the next free `TNN`, include the standard DoD items (lis
 Update this when a stage is completed.
 - 2026-11-11: Stage 0 (planning) done. Plan approved. Backlog T00–T23 created.
 - 2026-11-11: Stage 1 (setup) done: webpack 5, ESLint 10 (flat) + Prettier 3, Jest 30 + Babel 8, date-fns 4. Shared helpers in `src/js/utils/`. Next: **T05**.
+- 2026-11-11: Stage 2 (models) done: `ChecklistItem`, `Todo`, `Project` with validation and JSON round-trip. Next: **T07**.
