@@ -405,69 +405,69 @@
     {
       "id": "todoui-t06",
       "text": "T06 · Project class",
-      "description": "Goal: Project holds todos and serializes the subtree.\n\nDefinition of Done:\n- Project: id, name, color, isDefault, todos\n- Methods: addTodo, removeTodo, getTodo, rename (rejects empty)\n- toJSON/fromJSON rehydrates Todo instances\n- Unit tests\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: feat(models): add Project class\n\nCode links: line ranges are estimates until the task is done.",
+      "description": "Goal: Project holds todos and serializes the subtree.\n\nDefinition of Done:\n- Project: id, name, color, isDefault, todos\n- Methods: addTodo, removeTodo, getTodo, rename (rejects empty)\n- toJSON/fromJSON rehydrates Todo instances\n- Unit tests\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: feat(models): add Project class\n\nCode links: verified line ranges.",
       "tags": [
         "stage-2-models",
         "feature",
         "T06",
-        "src/js/models/Project.js:1-80",
-        "tests/models/Project.test.js:1-80"
+        "src/js/models/Project.js:1-88",
+        "tests/models/Project.test.js:1-157"
       ],
       "priority": "Must",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "createdAt": 1794386838192,
       "order": 7000,
       "subtasks": [
         {
           "id": "t06-dod1",
           "text": "Project: id, name, color, isDefault, todos",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t06-dod2",
           "text": "Methods: addTodo, removeTodo, getTodo, rename (rejects empty)",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t06-dod3",
           "text": "toJSON/fromJSON rehydrates Todo instances",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t06-dod4",
           "text": "Unit tests",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t06-dod5",
           "text": "npm run lint passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t06-dod6",
           "text": "npm test passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t06-dod7",
           "text": "npm run build succeeds",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t06-dod8",
           "text": "No DOM access in models/core/storage/utils",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t06-dod9",
           "text": "Code-link tags updated to real line ranges",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t06-dod10",
           "text": "Commit message proposed to user",
-          "completed": false
+          "completed": true
         }
       ]
     },
