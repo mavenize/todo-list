@@ -51,7 +51,8 @@ src/
     ├── core/                    # application logic (no DOM)
     │   ├── EventBus.js          # pub/sub, decouples logic from UI
     │   ├── ProjectManager.js    # CRUD for projects/todos, default project, move
-    │   └── TodoQuery.js         # smart lists, search, badge counts
+    │   ├── TodoQuery.js         # smart lists, search, badge counts
+    │   └── hydrate.js           # saved payload → ProjectManager, or fresh Inbox on bad data
     ├── storage/
     │   └── StorageService.js    # localStorage save/load, versioned key, safe parse
     ├── ui/                      # DOM only; talks to core via ProjectManager + EventBus

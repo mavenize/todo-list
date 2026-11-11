@@ -770,68 +770,70 @@
     {
       "id": "todoui-t11",
       "text": "T11 · Bootstrap: hydrate on load, autosave",
-      "description": "Goal: Wire storage, bus and ProjectManager in index.js.\n\nDefinition of Done:\n- index.js: load → ProjectManager.fromJSON or fresh (Inbox)\n- Subscribe StorageService.save to \"state:changed\"\n- Verified in DevTools > Application > Local Storage\n- Reload keeps data; deleting key restarts with Inbox\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: feat: hydrate state on load and autosave on change\n\nCode links: line ranges are estimates until the task is done.",
+      "description": "Goal: Wire storage, bus and ProjectManager in index.js.\n\nDefinition of Done:\n- index.js: load → ProjectManager.fromJSON or fresh (Inbox)\n- Subscribe StorageService.save to \"state:changed\"\n- Verified in DevTools > Application > Local Storage\n- Reload keeps data; deleting key restarts with Inbox\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: feat: hydrate state on load and autosave on change\n\nCode links: verified line ranges.",
       "tags": [
         "stage-4-persistence",
         "feature",
         "T11",
-        "src/index.js:1-40"
+        "src/index.js:1-40",
+        "src/js/core/hydrate.js:1-20",
+        "tests/core/hydrate.test.js:1-45"
       ],
       "priority": "Must",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "createdAt": 1794386838197,
       "order": 12000,
       "subtasks": [
         {
           "id": "t11-dod1",
           "text": "index.js: load → ProjectManager.fromJSON or fresh (Inbox)",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t11-dod2",
           "text": "Subscribe StorageService.save to \"state:changed\"",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t11-dod3",
           "text": "Verified in DevTools > Application > Local Storage",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t11-dod4",
           "text": "Reload keeps data; deleting key restarts with Inbox",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t11-dod5",
           "text": "npm run lint passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t11-dod6",
           "text": "npm test passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t11-dod7",
           "text": "npm run build succeeds",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t11-dod8",
           "text": "No DOM access in models/core/storage/utils",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t11-dod9",
           "text": "Code-link tags updated to real line ranges",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t11-dod10",
           "text": "Commit message proposed to user",
-          "completed": false
+          "completed": true
         }
       ]
     },
