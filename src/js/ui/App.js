@@ -155,6 +155,9 @@ export class App {
       onToggleImportant: (todoId) => this.#manager.toggleTodoImportant(todoId),
       onMove: (todoId, projectId) => this.#manager.moveTodo(todoId, projectId),
       onDelete: (todoId) => this.#confirmDeleteTodo(todoId),
+      onAddStep: (todoId, text) => this.#manager.addChecklistItem(todoId, text),
+      onToggleStep: (todoId, itemId) => this.#manager.toggleChecklistItem(todoId, itemId),
+      onRemoveStep: (todoId, itemId) => this.#manager.removeChecklistItem(todoId, itemId),
     });
     this.#unsubscribe = this.#bus.on(EVENTS.STATE_CHANGED, () => this.render());
     this.render();
@@ -381,6 +384,8 @@ export class App {
         priority: todo.priority,
         completed: todo.completed,
         important: todo.important,
+        notes: todo.notes,
+        checklist: todo.checklist.map(({ id, text, done }) => ({ id, text, done })),
       },
       projectId: project.id,
       projects: this.#manager.projects.map(({ id, name }) => ({ id, name })),

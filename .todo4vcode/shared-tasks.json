@@ -1401,58 +1401,65 @@
         "stage-6-ui-features",
         "feature",
         "T19",
-        "src/js/ui/components/TodoDetailView.js:160-260"
+        "src/js/ui/components/TodoDetailView.js:142-186",
+        "src/js/ui/components/TodoDetailView.js:215-225",
+        "src/js/ui/components/TodoDetailView.js:250-253",
+        "src/js/ui/components/TodoDetailView.js:269-331",
+        "src/js/ui/App.js:158-160",
+        "src/js/ui/App.js:387-388",
+        "src/styles/todo-detail.css:102-245",
+        "src/js/ui/icons.js:11"
       ],
       "priority": "Should",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "createdAt": 1794386838205,
       "order": 20000,
       "subtasks": [
         {
           "id": "t19-dod1",
           "text": "\"+ Add step\" adds item (Enter), toggle with circle, remove on hover",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t19-dod2",
           "text": "Notes textarea (\"Add notes...\") with save button, persisted",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t19-dod3",
           "text": "List row icons reflect notes/checklist presence",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t19-dod4",
           "text": "npm run lint passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t19-dod5",
           "text": "npm test passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t19-dod6",
           "text": "npm run build succeeds",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t19-dod7",
           "text": "No DOM access in models/core/storage/utils",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t19-dod8",
           "text": "Code-link tags updated to real line ranges",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t19-dod9",
           "text": "Commit message proposed to user",
-          "completed": false
+          "completed": true
         }
       ]
     },

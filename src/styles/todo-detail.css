@@ -99,6 +99,151 @@
   color: var(--color-text-subtle);
 }
 
+/* Steps (checklist): "+ Add step" input, then one row per step. */
+.steps,
+.notes {
+  margin-left: calc(2.5rem + var(--space-5));
+}
+
+.steps__add {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--color-accent);
+  cursor: text;
+}
+
+.steps__add-icon {
+  margin-left: var(--space-1);
+}
+
+.steps__input {
+  flex: 1;
+  min-width: 0;
+  min-height: 2.5rem;
+  padding: 0 var(--space-2);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--color-text);
+}
+
+.steps__input::placeholder {
+  color: var(--color-accent);
+}
+
+.steps__input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-soft);
+}
+
+.steps__input:focus::placeholder {
+  color: var(--color-text-subtle);
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 2.5rem;
+  padding-left: var(--space-1);
+  border-radius: var(--radius-md);
+}
+
+.step:hover {
+  background: var(--color-hover);
+}
+
+.step__check {
+  --check-size: 1.25rem;
+  --ring-color: var(--color-text-subtle);
+}
+
+.step__text {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  color: var(--color-text-muted);
+}
+
+.step--done .step__text {
+  color: var(--color-text-subtle);
+  text-decoration: line-through;
+}
+
+/* Remove button: shown on hover, or when a control in the row has keyboard focus. */
+.step__remove {
+  width: 2rem;
+  height: 2rem;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.step:hover .step__remove,
+.step:focus-within .step__remove {
+  opacity: 1;
+}
+
+.step__remove:hover {
+  color: var(--color-danger);
+}
+
+/* Notes: light-blue box with a round send (save) button. */
+.notes {
+  position: relative;
+  margin-top: var(--space-4);
+}
+
+.notes__input {
+  display: block;
+  width: 100%;
+  min-height: 7rem;
+  padding: var(--space-5) var(--space-6) calc(var(--space-6) + 2.75rem);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background: var(--color-accent-soft);
+  line-height: 1.7;
+  resize: vertical;
+  field-sizing: content;
+}
+
+.notes__input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.notes__input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.notes__save {
+  position: absolute;
+  right: var(--space-4);
+  bottom: var(--space-4);
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: var(--color-surface);
+  box-shadow: 0 4px 10px color-mix(in srgb, var(--color-accent) 35%, transparent);
+  transition:
+    background-color var(--transition-fast),
+    opacity var(--transition-fast);
+}
+
+.notes__save:hover:not([aria-disabled='true']) {
+  background: var(--color-accent-hover);
+}
+
+.notes__save[aria-disabled='true'] {
+  opacity: 0.45;
+  box-shadow: none;
+  cursor: default;
+}
+
 /* Placeholder when nothing is selected. */
 .detail-empty {
   display: flex;

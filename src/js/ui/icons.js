@@ -8,6 +8,7 @@ const PATHS = Object.freeze({
   plus: '<path d="M12 5v14M5 12h14"/>',
   close: '<path d="m6 6 12 12M18 6 6 18"/>',
   check: '<path d="m5.5 12.5 4 4 9-9"/>',
+  send: '<path d="M20.5 3.5 10 14"/><path d="M20.5 3.5 14 20.5l-4-6.5-6.5-4z"/>',
   note: '<path d="M5 4.5h14v10l-5 5H5z"/><path d="M14 19.5v-5h5"/>',
   checklist:
     '<path d="M10 7h10M10 12h10M10 17h10"/><path d="m3.5 7 1.5 1.5L7.5 6M3.5 15.5h3v3h-3z"/>',

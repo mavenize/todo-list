@@ -1,4 +1,4 @@
-import { clear, el } from '../dom';
+import { clear, el, preserveFocus } from '../dom';
 import { iconElement } from '../icons';
 import { DropdownMenu } from './DropdownMenu';
 import { priorityField } from './priorityField';
@@ -6,7 +6,8 @@ import { priorityField } from './priorityField';
 /**
  * @typedef {object} TodoDetail Plain data for the detail pane (built by App).
  * @property {{ id: string, title: string, description: string, dueDate: string|null,
- *   priority: string, completed: boolean, important: boolean }} todo
+ *   priority: string, completed: boolean, important: boolean, notes: string,
+ *   checklist: ReadonlyArray<{ id: string, text: string, done: boolean }> }} todo
  * @property {string} projectId
  * @property {ReadonlyArray<{ id: string, name: string }>} projects choices for "move to project"
  */
@@ -36,6 +37,9 @@ export class TodoDetailView {
    * @param {(todoId: string) => void} callbacks.onToggleImportant
    * @param {(todoId: string, projectId: string) => void} callbacks.onMove
    * @param {(todoId: string) => void} callbacks.onDelete asks for confirmation, then deletes
+   * @param {(todoId: string, text: string) => void} callbacks.onAddStep
+   * @param {(todoId: string, itemId: string) => void} callbacks.onToggleStep
+   * @param {(todoId: string, itemId: string) => void} callbacks.onRemoveStep
    */
   constructor(root, callbacks) {
     this.#root = root;
@@ -135,6 +139,51 @@ export class TodoDetailView {
         change: () => this.#call('onUpdate', id, { description: refs.description.value.trim() }),
       },
     });
+    // Steps: "+ Add step" input (Enter adds) above the list of steps.
+    refs.stepInput = el('input', {
+      class: 'steps__input',
+      attrs: {
+        type: 'text',
+        placeholder: 'Add step',
+        'aria-label': 'Add step',
+        maxlength: 200,
+        autocomplete: 'off',
+      },
+      on: {
+        keydown: (event) => {
+          if (event.key === 'Enter') {
+            event.preventDefault();
+            this.#addStep();
+          }
+        },
+      },
+    });
+    refs.steps = el('ul', { class: 'steps__list', attrs: { 'aria-label': 'Steps' } });
+
+    // Notes: saved with the send button, Ctrl/Cmd+Enter, or when the field loses focus.
+    refs.notes = el('textarea', {
+      class: 'notes__input',
+      attrs: { id: 'detail-notes', placeholder: 'Add notes...', rows: 3 },
+      on: {
+        input: () => this.#updateNotesButton(),
+        change: () => this.#saveNotes(),
+        keydown: (event) => {
+          if (event.key === 'Enter' && (event.ctrlKey || event.metaKey)) {
+            event.preventDefault();
+            this.#saveNotes();
+          }
+        },
+      },
+    });
+    refs.notesSave = el(
+      'button',
+      {
+        class: 'notes__save',
+        attrs: { type: 'button', 'aria-label': 'Save notes', title: 'Save notes (Ctrl+Enter)' },
+        on: { click: () => this.#saveNotes() },
+      },
+      iconElement('send'),
+    );
 
     clear(this.#root).append(
       el('article', { class: 'detail', attrs: { 'aria-label': 'Todo details' } }, [
@@ -163,6 +212,18 @@ export class TodoDetailView {
           ),
           refs.description,
         ]),
+        el('section', { class: 'steps', attrs: { 'aria-label': 'Steps' } }, [
+          el('label', { class: 'steps__add' }, [
+            iconElement('plus', 'steps__add-icon'),
+            refs.stepInput,
+          ]),
+          refs.steps,
+        ]),
+        el('section', { class: 'notes' }, [
+          el('label', { class: 'visually-hidden', attrs: { for: 'detail-notes' } }, 'Notes'),
+          refs.notes,
+          refs.notesSave,
+        ]),
       ]),
     );
 
@@ -187,6 +248,9 @@ export class TodoDetailView {
     if (idle(refs.title)) refs.title.value = todo.title;
     if (idle(refs.description)) refs.description.value = todo.description;
     if (idle(refs.dueDate)) refs.dueDate.value = todo.dueDate ?? '';
+    if (idle(refs.notes)) refs.notes.value = todo.notes;
+    this.#updateNotesButton();
+    this.#renderSteps(todo.checklist);
     for (const radio of refs.priority.querySelectorAll('input')) {
       radio.checked = radio.value === todo.priority;
     }
@@ -200,6 +264,70 @@ export class TodoDetailView {
       );
     }
     refs.project.value = projectId;
+  }
+
+  /** Redraws the steps, keeping focus on the same step's control (or the add input if it's gone). */
+  #renderSteps(checklist) {
+    const { steps, stepInput } = this.#refs;
+    const hadFocus = steps.contains(document.activeElement);
+    preserveFocus(steps, () => {
+      steps.replaceChildren(...checklist.map((item) => this.#step(item)));
+    });
+    if (hadFocus && !steps.contains(document.activeElement)) stepInput.focus();
+  }
+
+  #step({ id: itemId, text, done }) {
+    const todoId = this.#data.todo.id;
+    return el('li', { class: ['step', done && 'step--done'] }, [
+      el('input', {
+        class: 'check-ring step__check',
+        attrs: {
+          type: 'checkbox',
+          checked: done,
+          'aria-label': `Done: ${text}`,
+          'data-focus-key': `step-check:${itemId}`,
+        },
+        on: { change: () => this.#call('onToggleStep', todoId, itemId) },
+      }),
+      el('span', { class: 'step__text' }, text),
+      el(
+        'button',
+        {
+          class: 'icon-button step__remove',
+          attrs: {
+            type: 'button',
+            'aria-label': `Remove step: ${text}`,
+            title: 'Remove step',
+            'data-focus-key': `step-remove:${itemId}`,
+          },
+          on: { click: () => this.#call('onRemoveStep', todoId, itemId) },
+        },
+        iconElement('close'),
+      ),
+    ]);
+  }
+
+  #addStep() {
+    const input = this.#refs.stepInput;
+    const text = input.value.trim();
+    if (text === '') return;
+    input.value = '';
+    this.#call('onAddStep', this.#data.todo.id, text);
+  }
+
+  #saveNotes() {
+    const notes = this.#refs.notes.value;
+    if (notes !== this.#data.todo.notes) {
+      this.#call('onUpdate', this.#data.todo.id, { notes });
+    }
+    this.#updateNotesButton();
+  }
+
+  /** The save button is only active while the notes have unsaved changes. */
+  #updateNotesButton() {
+    const { notes, notesSave } = this.#refs;
+    // aria-disabled (not disabled) so the button keeps focus right after it saved.
+    notesSave.setAttribute('aria-disabled', String(notes.value === this.#data.todo.notes));
   }
 
   #saveTitle() {
