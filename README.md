@@ -55,7 +55,18 @@ npm run dev      # http://localhost:8080 with live reload
 
 ## Deployment
 
-`npm run deploy` builds the app and pushes `dist/` to the `gh-pages` branch with [gh-pages](https://github.com/tschaub/gh-pages). In the repository's **Settings → Pages**, set the source to **Deploy from a branch**, branch `gh-pages`, folder `/ (root)`. The production build uses relative asset URLs, so it works from the `/todo-list/` subpath.
+`npm run deploy` builds the app and pushes `dist/` to the `gh-pages` branch with [gh-pages](https://github.com/tschaub/gh-pages).
+
+Before the first deploy, create the branch once, empty. Otherwise gh-pages starts it from a copy of `main` and keeps its dotfiles (`.gitignore`, `.prettierrc`, ...) next to the build:
+
+```bash
+git switch --orphan gh-pages
+git commit --allow-empty -m "chore: start gh-pages branch"
+git push -u origin gh-pages
+git switch main
+```
+
+In the repository's **Settings → Pages**, set the source to **Deploy from a branch**, branch `gh-pages`, folder `/ (root)`. The production build uses relative asset URLs, so it works from the `/todo-list/` subpath.
 
 Each visitor's todos are saved in their own browser's `localStorage`; nothing is sent to a server.
 
