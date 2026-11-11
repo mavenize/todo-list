@@ -26,6 +26,15 @@ module.exports = [
     },
   },
   {
+    // Jest unit tests: ES modules run in Node with Jest globals.
+    files: ['tests/**/*.js'],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: { ...globals.node, ...globals.jest },
+    },
+  },
+  {
     rules: {
       'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
       'no-var': 'error',

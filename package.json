@@ -9,15 +9,22 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "devDependencies": {
+    "@babel/core": "^8.0.9",
+    "@babel/preset-env": "^8.0.7",
     "@eslint/js": "^10.0.1",
+    "babel-jest": "^30.5.2",
     "css-loader": "^7.1.5",
     "eslint": "^10.13.0",
     "eslint-config-prettier": "^10.1.8",
     "globals": "^17.13.0",
     "html-webpack-plugin": "^5.6.8",
+    "jest": "^30.5.2",
     "prettier": "^3.9.10",
     "style-loader": "^4.0.0",
     "webpack": "^5.112.2",

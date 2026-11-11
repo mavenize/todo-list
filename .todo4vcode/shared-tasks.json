@@ -173,75 +173,78 @@
     {
       "id": "todoui-t03",
       "text": "T03 · Configure Jest with Babel",
-      "description": "Goal: Install jest, babel-jest, @babel/core, @babel/preset-env; ESM source works in tests.\n\nDefinition of Done:\n- babel.config.js with preset-env targeting current node for tests\n- jest config (testEnvironment node, roots tests/)\n- \"test\" and \"test:watch\" scripts\n- Sanity test passes\n- ESLint knows Jest globals in tests/\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: chore: configure Jest with Babel for unit tests\n\nCode links: line ranges are estimates until the task is done.",
+      "description": "Goal: Install jest, babel-jest, @babel/core, @babel/preset-env; ESM source works in tests.\n\nDefinition of Done:\n- babel.config.js with preset-env targeting current node for tests\n- jest config (testEnvironment node, roots tests/)\n- \"test\" and \"test:watch\" scripts\n- Sanity test passes\n- ESLint knows Jest globals in tests/\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: chore: configure Jest with Babel for unit tests\n\nCode links: verified line ranges.",
       "tags": [
         "stage-1-setup",
         "chore",
         "T03",
-        "babel.config.js:1-10",
-        "package.json:1-50",
-        "tests/sanity.test.js:1-5"
+        "babel.config.js:1-5",
+        "jest.config.js:1-11",
+        "tests/sanity.test.js:1-7",
+        "tests/fixtures/sanityModule.js:1",
+        "eslint.config.js:28-36",
+        "package.json:13-15"
       ],
       "priority": "Must",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "createdAt": 1794386838189,
       "order": 4000,
       "subtasks": [
         {
           "id": "t03-dod1",
           "text": "babel.config.js with preset-env targeting current node for tests",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t03-dod2",
           "text": "jest config (testEnvironment node, roots tests/)",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t03-dod3",
           "text": "\"test\" and \"test:watch\" scripts",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t03-dod4",
           "text": "Sanity test passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t03-dod5",
           "text": "ESLint knows Jest globals in tests/",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t03-dod6",
           "text": "npm run lint passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t03-dod7",
           "text": "npm test passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t03-dod8",
           "text": "npm run build succeeds",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t03-dod9",
           "text": "No DOM access in models/core/storage/utils",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t03-dod10",
           "text": "Code-link tags updated to real line ranges",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t03-dod11",
           "text": "Commit message proposed to user",
-          "completed": false
+          "completed": true
         }
       ]
     },
