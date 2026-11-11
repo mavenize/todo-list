@@ -96,3 +96,4 @@ Update this when a stage is completed.
 - 2026-11-11: Stage 0 (planning) done. Plan approved. Backlog T00–T23 created.
 - 2026-11-11: Stage 1 (setup) done: webpack 5, ESLint 10 (flat) + Prettier 3, Jest 30 + Babel 8, date-fns 4. Shared helpers in `src/js/utils/`. Next: **T05**.
 - 2026-11-11: Stage 2 (models) done: `ChecklistItem`, `Todo`, `Project` with validation and JSON round-trip. Next: **T07**.
+- 2026-11-11: Stage 3 (logic) done: `EventBus`, `ProjectManager` (incl. checklist operations), `TodoQuery` (smart lists, project list, search, counts). Next: **T10**.

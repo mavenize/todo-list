@@ -622,74 +622,74 @@
     {
       "id": "todoui-t09",
       "text": "T09 · TodoQuery: smart lists, search, counts",
-      "description": "Goal: Read-only queries used by the UI.\n\nDefinition of Done:\n- smartList(type): overview (open), today, important, scheduled (sorted by date), done\n- search(query): case-insensitive on title/description/notes across projects\n- counts(): badge numbers per smart list and per project (open todos)\n- Results include project reference for display\n- Unit tests with fixed \"today\"\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: feat(core): add smart list, search and count queries\n\nCode links: line ranges are estimates until the task is done.",
+      "description": "Goal: Read-only queries used by the UI.\n\nDefinition of Done:\n- smartList(type): overview (open), today, important, scheduled (sorted by date), done\n- search(query): case-insensitive on title/description/notes across projects\n- counts(): badge numbers per smart list and per project (open todos)\n- Results include project reference for display\n- Unit tests with fixed \"today\"\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: feat(core): add smart list, search and count queries\n\nCode links: verified line ranges.",
       "tags": [
         "stage-3-logic",
         "feature",
         "T09",
-        "src/js/core/TodoQuery.js:1-90",
-        "tests/core/TodoQuery.test.js:1-120"
+        "src/js/core/TodoQuery.js:1-89",
+        "tests/core/TodoQuery.test.js:1-201"
       ],
       "priority": "Must",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "createdAt": 1794386838195,
       "order": 10000,
       "subtasks": [
         {
           "id": "t09-dod1",
           "text": "smartList(type): overview (open), today, important, scheduled (sorted by date), done",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t09-dod2",
           "text": "search(query): case-insensitive on title/description/notes across projects",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t09-dod3",
           "text": "counts(): badge numbers per smart list and per project (open todos)",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t09-dod4",
           "text": "Results include project reference for display",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t09-dod5",
           "text": "Unit tests with fixed \"today\"",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t09-dod6",
           "text": "npm run lint passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t09-dod7",
           "text": "npm test passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t09-dod8",
           "text": "npm run build succeeds",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t09-dod9",
           "text": "No DOM access in models/core/storage/utils",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t09-dod10",
           "text": "Code-link tags updated to real line ranges",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t09-dod11",
           "text": "Commit message proposed to user",
-          "completed": false
+          "completed": true
         }
       ]
     },
