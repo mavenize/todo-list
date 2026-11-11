@@ -329,75 +329,76 @@
     {
       "id": "todoui-t05",
       "text": "T05 · Todo and ChecklistItem classes",
-      "description": "Goal: Pure data classes with behaviour and JSON round-trip.\n\nDefinition of Done:\n- ChecklistItem: id, text, done, toggle(), toJSON/fromJSON\n- Todo: title, description, dueDate, priority, notes, checklist, completed, important, createdAt\n- Todo methods: update, toggleComplete, toggleImportant, setPriority (validates), add/toggle/removeChecklistItem\n- Todo.fromJSON(todo.toJSON()) restores working methods\n- Unit tests cover all methods + invalid priority\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: feat(models): add Todo and ChecklistItem classes\n\nCode links: line ranges are estimates until the task is done.",
+      "description": "Goal: Pure data classes with behaviour and JSON round-trip.\n\nDefinition of Done:\n- ChecklistItem: id, text, done, toggle(), toJSON/fromJSON\n- Todo: title, description, dueDate, priority, notes, checklist, completed, important, createdAt\n- Todo methods: update, toggleComplete, toggleImportant, setPriority (validates), add/toggle/removeChecklistItem\n- Todo.fromJSON(todo.toJSON()) restores working methods\n- Unit tests cover all methods + invalid priority\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: feat(models): add Todo and ChecklistItem classes\n\nCode links: verified line ranges.",
       "tags": [
         "stage-2-models",
         "feature",
         "T05",
-        "src/js/models/ChecklistItem.js:1-30",
-        "src/js/models/Todo.js:1-120",
-        "tests/models/Todo.test.js:1-120"
+        "src/js/models/ChecklistItem.js:1-28",
+        "src/js/models/Todo.js:1-155",
+        "tests/models/ChecklistItem.test.js:1-42",
+        "tests/models/Todo.test.js:1-237"
       ],
       "priority": "Must",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "createdAt": 1794386838191,
       "order": 6000,
       "subtasks": [
         {
           "id": "t05-dod1",
           "text": "ChecklistItem: id, text, done, toggle(), toJSON/fromJSON",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t05-dod2",
           "text": "Todo: title, description, dueDate, priority, notes, checklist, completed, important, createdAt",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t05-dod3",
           "text": "Todo methods: update, toggleComplete, toggleImportant, setPriority (validates), add/toggle/removeChecklistItem",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t05-dod4",
           "text": "Todo.fromJSON(todo.toJSON()) restores working methods",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t05-dod5",
           "text": "Unit tests cover all methods + invalid priority",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t05-dod6",
           "text": "npm run lint passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t05-dod7",
           "text": "npm test passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t05-dod8",
           "text": "npm run build succeeds",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t05-dod9",
           "text": "No DOM access in models/core/storage/utils",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t05-dod10",
           "text": "Code-link tags updated to real line ranges",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t05-dod11",
           "text": "Commit message proposed to user",
-          "completed": false
+          "completed": true
         }
       ]
     },
