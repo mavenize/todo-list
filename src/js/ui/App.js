@@ -80,6 +80,7 @@ export class App {
   #panes;
   #onViewChange;
   #unsubscribe = null;
+  #header = null;
   #sidebar = null;
   #listView = null;
   #detailView = null;
@@ -137,7 +138,9 @@ export class App {
   /** Renders the static header and sidebar frame, subscribes to data changes and draws the panes. */
   mount() {
     if (this.#unsubscribe) return this;
-    new Header(this.#panes.header).render();
+    this.#header = new Header(this.#panes.header, {
+      onSearch: (query) => this.setSearchQuery(query),
+    }).render();
     this.#sidebar = new Sidebar(this.#panes.sidebar, {
       onSelectSmartList: (id) => this.showSmartList(id),
       onSelectProject: (projectId) => this.showProject(projectId),
@@ -201,6 +204,8 @@ export class App {
   /** Re-draws every pane from the current data and view state. */
   render() {
     this.#reconcile();
+    // Keeps the search field in step when the app ends a search (e.g. a sidebar click).
+    this.#header?.setQuery(this.#searchQuery);
     this.#renderSidebar();
     this.#renderList();
     this.#renderDetail();

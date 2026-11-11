@@ -1471,64 +1471,68 @@
         "stage-6-ui-features",
         "feature",
         "T20",
-        "src/js/ui/components/Header.js:1-70",
-        "src/js/ui/App.js:1-160"
+        "src/js/ui/components/Header.js:1-92",
+        "src/js/utils/debounce.js:1-49",
+        "tests/utils/debounce.test.js:1-81",
+        "src/js/utils/constants.js:52-53",
+        "src/js/ui/App.js:141-143",
+        "src/js/ui/App.js:207-208"
       ],
       "priority": "Should",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "createdAt": 1794386838206,
       "order": 21000,
       "subtasks": [
         {
           "id": "t20-dod1",
           "text": "Debounced input (~200ms) updates App view state",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t20-dod2",
           "text": "List pane shows \"Search: <query>\" results with project names",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t20-dod3",
           "text": "Clearing the input (or Esc) returns to previous view",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t20-dod4",
           "text": "No-results empty state",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t20-dod5",
           "text": "npm run lint passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t20-dod6",
           "text": "npm test passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t20-dod7",
           "text": "npm run build succeeds",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t20-dod8",
           "text": "No DOM access in models/core/storage/utils",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t20-dod9",
           "text": "Code-link tags updated to real line ranges",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t20-dod10",
           "text": "Commit message proposed to user",
-          "completed": false
+          "completed": true
         }
       ]
     },

@@ -48,3 +48,6 @@ export const STORAGE_VERSION = 1;
 export const EVENTS = Object.freeze({
   STATE_CHANGED: 'state:changed',
 });
+
+/** Delay between the last keystroke in the search field and filtering. */
+export const SEARCH_DEBOUNCE_MS = 200;

@@ -72,7 +72,8 @@ src/
     └── utils/
         ├── constants.js         # PRIORITIES, SMART_LISTS, STORAGE_KEY, colors
         ├── id.js                # crypto.randomUUID wrapper
-        └── dateFormat.js        # date-fns: formatDueLabel, isToday, isOverdue
+        ├── dateFormat.js        # date-fns: formatDueLabel, isToday, isOverdue
+        └── debounce.js          # debounce with cancel/flush (search input)
 tests/                           # Jest, mirrors src/js (models, core, storage, utils)
 webpack.config.js · babel.config.js · eslint.config.js · .prettierrc · package.json
 ```
