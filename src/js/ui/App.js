@@ -1,15 +1,48 @@
 import { TodoQuery } from '../core/TodoQuery';
 import { EVENTS, PROJECT_COLORS, SMART_LISTS, SMART_LIST_ITEMS } from '../utils/constants';
+import { formatDueLabel } from '../utils/dateFormat';
 import { ConfirmModal } from './components/ConfirmModal';
 import { DropdownMenu } from './components/DropdownMenu';
 import { Header } from './components/Header';
 import { ProjectFormModal } from './components/ProjectFormModal';
 import { Sidebar } from './components/Sidebar';
-import { clear, el } from './dom';
+import { TodoListView } from './components/TodoListView';
+import { clear } from './dom';
 
 const VIEW_TYPES = Object.freeze({ SMART: 'smart', PROJECT: 'project' });
 const DEFAULT_VIEW = Object.freeze({ type: VIEW_TYPES.SMART, id: SMART_LISTS.OVERVIEW });
 const SMART_LIST_IDS = new Set(Object.values(SMART_LISTS));
+
+/** List-pane message when a view has no todos. */
+const EMPTY_MESSAGES = Object.freeze({
+  [SMART_LISTS.OVERVIEW]: 'Nothing to do. Add a todo with the + button.',
+  [SMART_LISTS.TODAY]: 'Nothing due today.',
+  [SMART_LISTS.IMPORTANT]: 'No important todos. Star a todo to see it here.',
+  [SMART_LISTS.SCHEDULED]: 'No todos with a due date.',
+  [SMART_LISTS.DONE]: 'No completed todos yet.',
+  project: 'No todos in this project yet. Add one with the + button.',
+});
+
+/**
+ * Plain row data for TodoListView. `withProject` adds the project tag (smart lists, search).
+ * @returns {import('./components/TodoListView').TodoRow}
+ */
+function toRow({ todo, project }, { withProject, now }) {
+  const steps = todo.checklist;
+  return {
+    id: todo.id,
+    title: todo.title,
+    priority: todo.priority,
+    completed: todo.completed,
+    important: todo.important,
+    dueLabel: formatDueLabel(todo.dueDate, now),
+    hasNotes: todo.notes.trim() !== '',
+    checklist: steps.length
+      ? { done: steps.filter((item) => item.done).length, total: steps.length }
+      : null,
+    project: withProject ? { name: project.name, color: project.color } : null,
+  };
+}
 
 /**
  * The view to show: `view` if it still points at a smart list or an existing project.
@@ -47,6 +80,7 @@ export class App {
   #onViewChange;
   #unsubscribe = null;
   #sidebar = null;
+  #listView = null;
 
   #activeView;
   #selectedTodoId = null;
@@ -108,6 +142,11 @@ export class App {
       onNewProject: () => this.#openProjectForm(),
       onNewTodo: () => this.#openTodoForm(),
     }).mount();
+    this.#listView = new TodoListView(this.#panes.list, {
+      onSelect: (todoId) => this.selectTodo(todoId),
+      onToggleComplete: (todoId) => this.#manager.toggleTodoComplete(todoId),
+      onToggleImportant: (todoId) => this.#manager.toggleTodoImportant(todoId),
+    });
     this.#unsubscribe = this.#bus.on(EVENTS.STATE_CHANGED, () => this.render());
     this.render();
     return this;
@@ -182,9 +221,18 @@ export class App {
   #currentEntries() {
     if (this.isSearching) return this.#query.search(this.#searchQuery);
     if (this.#activeView.type === VIEW_TYPES.PROJECT) {
-      return this.#query.projectList(this.#activeView.id);
+      // A project shows open and completed todos; completed ones go last (stable sort).
+      return this.#query
+        .projectList(this.#activeView.id)
+        .sort((a, b) => Number(a.todo.completed) - Number(b.todo.completed));
     }
     return this.#query.smartList(this.#activeView.id);
+  }
+
+  #currentEmptyMessage() {
+    if (this.isSearching) return `No todos match "${this.#searchQuery.trim()}".`;
+    if (this.#activeView.type === VIEW_TYPES.PROJECT) return EMPTY_MESSAGES.project;
+    return EMPTY_MESSAGES[this.#activeView.id];
   }
 
   #currentTitle() {
@@ -266,17 +314,17 @@ export class App {
   }
 
   #renderList() {
-    // Rows are a placeholder until TodoListView (T16), which receives { title, entries,
-    // selectedTodoId, menu } and the callbacks selectTodo / toggleComplete / toggleImportant.
-    const entries = this.#currentEntries();
-    const count = entries.length;
-    clear(this.#panes.list).append(
-      el('div', { class: 'list-header' }, [
-        el('h1', { class: 'list-header__title' }, this.#currentTitle()),
-        this.#listHeaderMenu(),
-      ]),
-      el('p', { class: 'list-pane__summary' }, `${count} ${count === 1 ? 'todo' : 'todos'}`),
-    );
+    if (!this.#listView) return;
+    // Rows in smart lists and search results come from several projects, so they name it.
+    const withProject = this.isSearching || this.#activeView.type === VIEW_TYPES.SMART;
+    const now = new Date();
+    this.#listView.render({
+      title: this.#currentTitle(),
+      menu: this.#listHeaderMenu(),
+      rows: this.#currentEntries().map((entry) => toRow(entry, { withProject, now })),
+      selectedTodoId: this.#selectedTodoId,
+      emptyMessage: this.#currentEmptyMessage(),
+    });
   }
 
   #renderDetail() {

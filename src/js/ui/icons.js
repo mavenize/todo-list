@@ -7,6 +7,10 @@ const PATHS = Object.freeze({
   chevronDown: '<path d="m6 9 6 6 6-6"/>',
   plus: '<path d="M12 5v14M5 12h14"/>',
   close: '<path d="m6 6 12 12M18 6 6 18"/>',
+  check: '<path d="m5.5 12.5 4 4 9-9"/>',
+  note: '<path d="M5 4.5h14v10l-5 5H5z"/><path d="M14 19.5v-5h5"/>',
+  checklist:
+    '<path d="M10 7h10M10 12h10M10 17h10"/><path d="m3.5 7 1.5 1.5L7.5 6M3.5 15.5h3v3h-3z"/>',
   // Round line caps turn these zero-length strokes into dots; use with a thicker stroke.
   more: '<path d="M12 5h.01M12 12h.01M12 19h.01"/>',
   // Smart lists

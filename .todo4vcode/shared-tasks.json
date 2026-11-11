@@ -1163,74 +1163,81 @@
         "stage-6-ui-features",
         "feature",
         "T16",
-        "src/js/ui/components/TodoListView.js:1-140",
-        "src/styles/todo-list.css:1-120"
+        "src/js/ui/components/TodoListView.js:1-163",
+        "src/styles/todo-list.css:1-165",
+        "src/js/ui/App.js:16-45",
+        "src/js/ui/App.js:145-149",
+        "src/js/ui/App.js:220-236",
+        "src/js/ui/App.js:316-328",
+        "src/js/ui/dom.js:74-84",
+        "src/js/ui/components/Sidebar.js:73-79",
+        "src/js/ui/icons.js:10-13"
       ],
       "priority": "Must",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "createdAt": 1794386838202,
       "order": 17000,
       "subtasks": [
         {
           "id": "t16-dod1",
           "text": "Header with current list/project name (blue underline)",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t16-dod2",
           "text": "Row: circle checkbox colored by priority, title, due label, notes/checklist icons, star",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t16-dod3",
           "text": "Completing and starring work from the row",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t16-dod4",
           "text": "Selected row highlighted; click selects todo",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t16-dod5",
           "text": "Empty state message",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t16-dod6",
           "text": "In smart lists, row shows project name",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t16-dod7",
           "text": "npm run lint passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t16-dod8",
           "text": "npm test passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t16-dod9",
           "text": "npm run build succeeds",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t16-dod10",
           "text": "No DOM access in models/core/storage/utils",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t16-dod11",
           "text": "Code-link tags updated to real line ranges",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t16-dod12",
           "text": "Commit message proposed to user",
-          "completed": false
+          "completed": true
         }
       ]
     },

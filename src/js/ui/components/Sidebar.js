@@ -1,4 +1,4 @@
-import { clear, el } from '../dom';
+import { clear, el, preserveFocus } from '../dom';
 import { iconElement } from '../icons';
 
 /** Sidebar icon per smart list id. */
@@ -72,11 +72,11 @@ export class Sidebar {
    */
   render({ smartLists, projects, counts, activeView }) {
     const activeKey = activeView ? focusKey(activeView.type, activeView.id) : null;
-    // Re-rendering replaces the buttons, so remember which one had keyboard focus.
-    const focusedKey = this.#nav.contains(document.activeElement)
-      ? document.activeElement.dataset.focusKey
-      : null;
+    // Re-rendering replaces the buttons; keep keyboard focus on the same item.
+    preserveFocus(this.#nav, () => this.#renderNav({ smartLists, projects, counts, activeKey }));
+  }
 
+  #renderNav({ smartLists, projects, counts, activeKey }) {
     clear(this.#nav).append(
       el(
         'ul',
@@ -124,10 +124,6 @@ export class Sidebar {
         [iconElement('plus'), el('span', {}, 'New project')],
       ),
     );
-
-    if (focusedKey) {
-      this.#nav.querySelector(`[data-focus-key="${CSS.escape(focusedKey)}"]`)?.focus();
-    }
   }
 
   /** One `<li>` with a nav button. */

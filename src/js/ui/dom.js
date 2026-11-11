@@ -70,3 +70,15 @@ export function restoreFocus(node) {
   const key = node.dataset?.focusKey;
   if (key) document.querySelector(`[data-focus-key="${CSS.escape(key)}"]`)?.focus();
 }
+
+/**
+ * Runs `render` (which replaces the content of `container`) and keeps keyboard focus:
+ * if an element with a `data-focus-key` inside `container` had focus, the new element
+ * with the same key gets it back.
+ */
+export function preserveFocus(container, render) {
+  const active = document.activeElement;
+  const key = active && container.contains(active) ? active.dataset?.focusKey : undefined;
+  render();
+  if (key) container.querySelector(`[data-focus-key="${CSS.escape(key)}"]`)?.focus();
+}

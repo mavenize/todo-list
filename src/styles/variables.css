@@ -22,6 +22,7 @@
   --color-danger-hover: #d13a3f;
   --color-danger-soft: #fdecec;
   --color-notification: #f0643f;
+  --color-star: #f5a623;
 
   /* Priorities (checkbox ring: priority--low / --medium / --high) */
   --priority-low: #3fbf7f;
