@@ -56,3 +56,17 @@ export function clear(node) {
   node.replaceChildren();
   return node;
 }
+
+/**
+ * Moves focus back to `node`. If a re-render has replaced it, focuses the element that now
+ * carries the same `data-focus-key` instead. Give elements that keep focus across renders a key.
+ */
+export function restoreFocus(node) {
+  if (!node) return;
+  if (node.isConnected) {
+    node.focus();
+    return;
+  }
+  const key = node.dataset?.focusKey;
+  if (key) document.querySelector(`[data-focus-key="${CSS.escape(key)}"]`)?.focus();
+}

@@ -1,6 +1,9 @@
 import { TodoQuery } from '../core/TodoQuery';
-import { EVENTS, SMART_LISTS, SMART_LIST_ITEMS } from '../utils/constants';
+import { EVENTS, PROJECT_COLORS, SMART_LISTS, SMART_LIST_ITEMS } from '../utils/constants';
+import { ConfirmModal } from './components/ConfirmModal';
+import { DropdownMenu } from './components/DropdownMenu';
 import { Header } from './components/Header';
+import { ProjectFormModal } from './components/ProjectFormModal';
 import { Sidebar } from './components/Sidebar';
 import { clear, el } from './dom';
 
@@ -9,16 +12,18 @@ const DEFAULT_VIEW = Object.freeze({ type: VIEW_TYPES.SMART, id: SMART_LISTS.OVE
 const SMART_LIST_IDS = new Set(Object.values(SMART_LISTS));
 
 /**
- * The view to show: `view` if it still points at a smart list or an existing project,
- * otherwise the Overview. Accepts anything (it may come from saved data).
+ * The view to show: `view` if it still points at a smart list or an existing project.
+ * A project view whose project is gone (e.g. just deleted) falls back to the Inbox;
+ * anything else unusable falls back to the Overview. Accepts anything (it may come from saved data).
  */
 function resolveView(view, manager) {
   if (view && typeof view === 'object') {
     if (view.type === VIEW_TYPES.SMART && SMART_LIST_IDS.has(view.id)) {
       return { type: VIEW_TYPES.SMART, id: view.id };
     }
-    if (view.type === VIEW_TYPES.PROJECT && manager.getProject(view.id)) {
-      return { type: VIEW_TYPES.PROJECT, id: view.id };
+    if (view.type === VIEW_TYPES.PROJECT) {
+      const project = manager.getProject(view.id) ?? manager.defaultProject;
+      return { type: VIEW_TYPES.PROJECT, id: project.id };
     }
   }
   return { ...DEFAULT_VIEW };
@@ -190,8 +195,60 @@ export class App {
     return SMART_LIST_ITEMS.find((item) => item.id === this.#activeView.id).label;
   }
 
+  /** "New project": creates the project and switches to it. */
   #openProjectForm() {
-    // ProjectFormModal is added in T15.
+    const used = new Set(this.#manager.projects.map((project) => project.color));
+    new ProjectFormModal({
+      // Suggest a palette color no project uses yet.
+      defaultColor: PROJECT_COLORS.find((color) => !used.has(color)) ?? PROJECT_COLORS[0],
+      onSubmit: ({ name, color }) => {
+        const project = this.#manager.createProject({ name, color });
+        this.showProject(project.id);
+      },
+    }).open();
+  }
+
+  #openRenameProject(projectId) {
+    const project = this.#manager.getProject(projectId);
+    if (!project || project.isDefault) return;
+    new ProjectFormModal({
+      project: { name: project.name },
+      onSubmit: ({ name }) => this.#manager.renameProject(projectId, name),
+    }).open();
+  }
+
+  /** Asks before deleting; the view then falls back to the Inbox (see resolveView). */
+  #confirmDeleteProject(projectId) {
+    const project = this.#manager.getProject(projectId);
+    if (!project || project.isDefault) return;
+    const count = project.todos.length;
+    const todos = count === 0 ? '' : ` and its ${count} ${count === 1 ? 'todo' : 'todos'}`;
+    new ConfirmModal({
+      title: 'Delete project?',
+      message: `"${project.name}"${todos} will be deleted. This can't be undone.`,
+      confirmLabel: 'Delete project',
+      danger: true,
+      onConfirm: () => this.#manager.deleteProject(projectId),
+    }).open();
+  }
+
+  /** The list header's ⋮ menu: only for custom projects (the Inbox can't be renamed or deleted). */
+  #listHeaderMenu() {
+    if (this.isSearching || this.#activeView.type !== VIEW_TYPES.PROJECT) return null;
+    const project = this.#manager.getProject(this.#activeView.id);
+    if (!project || project.isDefault) return null;
+    return new DropdownMenu({
+      label: 'Project actions',
+      focusKey: 'project-menu',
+      items: [
+        { label: 'Rename project', onSelect: () => this.#openRenameProject(project.id) },
+        {
+          label: 'Delete project',
+          danger: true,
+          onSelect: () => this.#confirmDeleteProject(project.id),
+        },
+      ],
+    }).render();
   }
 
   #openTodoForm() {
@@ -209,12 +266,15 @@ export class App {
   }
 
   #renderList() {
-    // Placeholder until TodoListView (T16), which receives { title, entries, selectedTodoId }
-    // and the callbacks selectTodo / toggleComplete / toggleImportant.
+    // Rows are a placeholder until TodoListView (T16), which receives { title, entries,
+    // selectedTodoId, menu } and the callbacks selectTodo / toggleComplete / toggleImportant.
     const entries = this.#currentEntries();
     const count = entries.length;
     clear(this.#panes.list).append(
-      el('h1', { class: 'list-pane__title' }, this.#currentTitle()),
+      el('div', { class: 'list-header' }, [
+        el('h1', { class: 'list-header__title' }, this.#currentTitle()),
+        this.#listHeaderMenu(),
+      ]),
       el('p', { class: 'list-pane__summary' }, `${count} ${count === 1 ? 'todo' : 'todos'}`),
     );
   }

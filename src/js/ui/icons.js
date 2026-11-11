@@ -6,6 +6,9 @@ const PATHS = Object.freeze({
   bell: '<path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 1.5h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/>',
   chevronDown: '<path d="m6 9 6 6 6-6"/>',
   plus: '<path d="M12 5v14M5 12h14"/>',
+  close: '<path d="m6 6 12 12M18 6 6 18"/>',
+  // Round line caps turn these zero-length strokes into dots; use with a thicker stroke.
+  more: '<path d="M12 5h.01M12 12h.01M12 19h.01"/>',
   // Smart lists
   grid:
     '<rect x="4" y="4" width="4" height="4" rx="1"/><rect x="10" y="4" width="4" height="4" rx="1"/>' +

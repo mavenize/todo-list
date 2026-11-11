@@ -1,0 +1,27 @@
+/* Middle pane. The header holds the list title and, for custom projects, the ⋮ menu.
+   Rows and the blue underline are added in T16. */
+
+.list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  min-height: var(--header-height);
+  padding: var(--space-3) var(--space-4) var(--space-3) var(--space-8);
+}
+
+.list-header__title {
+  min-width: 0;
+  overflow: hidden;
+  font-size: var(--font-size-md);
+  letter-spacing: 0.04em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.list-pane__summary {
+  padding: 0 var(--space-8);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}

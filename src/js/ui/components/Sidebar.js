@@ -10,7 +10,7 @@ const SMART_LIST_ICONS = Object.freeze({
   done: 'calendarCheck',
 });
 
-const navKey = (type, id) => `${type}:${id}`;
+const focusKey = (type, id) => `${type}:${id}`;
 
 /** Count badge, or nothing for 0. */
 function badge(count, className = '') {
@@ -71,10 +71,10 @@ export class Sidebar {
    * @param {{ type: 'smart'|'project', id: string }|null} data.activeView null while searching
    */
   render({ smartLists, projects, counts, activeView }) {
-    const activeKey = activeView ? navKey(activeView.type, activeView.id) : null;
+    const activeKey = activeView ? focusKey(activeView.type, activeView.id) : null;
     // Re-rendering replaces the buttons, so remember which one had keyboard focus.
     const focusedKey = this.#nav.contains(document.activeElement)
-      ? document.activeElement.dataset.navKey
+      ? document.activeElement.dataset.focusKey
       : null;
 
     clear(this.#nav).append(
@@ -83,7 +83,7 @@ export class Sidebar {
         { class: 'nav-list' },
         smartLists.map(({ id, label }) =>
           this.#item({
-            key: navKey('smart', id),
+            key: focusKey('smart', id),
             activeKey,
             onClick: () => this.#callbacks.onSelectSmartList(id),
             children: [
@@ -100,7 +100,7 @@ export class Sidebar {
         { class: 'nav-list' },
         projects.map((project) => {
           const item = this.#item({
-            key: navKey('project', project.id),
+            key: focusKey('project', project.id),
             activeKey,
             onClick: () => this.#callbacks.onSelectProject(project.id),
             children: [
@@ -118,7 +118,7 @@ export class Sidebar {
         'button',
         {
           class: 'sidebar__new-project',
-          attrs: { type: 'button', 'data-nav-key': 'new-project' },
+          attrs: { type: 'button', 'data-focus-key': 'new-project' },
           on: { click: () => this.#callbacks.onNewProject() },
         },
         [iconElement('plus'), el('span', {}, 'New project')],
@@ -126,7 +126,7 @@ export class Sidebar {
     );
 
     if (focusedKey) {
-      this.#nav.querySelector(`[data-nav-key="${CSS.escape(focusedKey)}"]`)?.focus();
+      this.#nav.querySelector(`[data-focus-key="${CSS.escape(focusedKey)}"]`)?.focus();
     }
   }
 
@@ -140,7 +140,7 @@ export class Sidebar {
         'button',
         {
           class: ['nav-item', active && 'nav-item--active'],
-          attrs: { type: 'button', 'data-nav-key': key, 'aria-current': active && 'page' },
+          attrs: { type: 'button', 'data-focus-key': key, 'aria-current': active && 'page' },
           on: { click: onClick },
         },
         children,

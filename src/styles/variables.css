@@ -6,6 +6,7 @@
   --color-header-bg: #f4f5f8;
   --color-border: #e8eaef;
   --color-hover: #f0f2f6;
+  --color-backdrop: rgba(30, 40, 60, 0.35);
 
   /* Text */
   --color-text: #3d4451;
@@ -15,8 +16,11 @@
   /* Accents */
   --color-accent: #4a7cf6;
   --color-accent-soft: #e4ecfd;
+  --color-accent-hover: #3768e8;
   --color-brand: #f0643f;
   --color-danger: #e5484d;
+  --color-danger-hover: #d13a3f;
+  --color-danger-soft: #fdecec;
   --color-notification: #f0643f;
 
   /* Priorities (checkbox ring: priority--low / --medium / --high) */

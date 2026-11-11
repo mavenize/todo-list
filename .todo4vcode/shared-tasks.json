@@ -1079,70 +1079,79 @@
         "stage-6-ui-features",
         "feature",
         "T15",
-        "src/js/ui/components/Modal.js:1-60",
-        "src/js/ui/components/ProjectFormModal.js:1-80",
-        "src/styles/modal.css:1-60"
+        "src/js/ui/components/Modal.js:1-109",
+        "src/js/ui/components/ProjectFormModal.js:1-175",
+        "src/js/ui/components/ConfirmModal.js:1-60",
+        "src/js/ui/components/DropdownMenu.js:1-141",
+        "src/js/ui/App.js:14-28",
+        "src/js/ui/App.js:198-252",
+        "src/js/ui/App.js:268-280",
+        "src/js/ui/dom.js:60-72",
+        "src/styles/modal.css:1-147",
+        "src/styles/menu.css:1-50",
+        "src/styles/todo-list.css:1-27",
+        "src/styles/base.css:106-165"
       ],
       "priority": "Should",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "createdAt": 1794386838201,
       "order": 16000,
       "subtasks": [
         {
           "id": "t15-dod1",
           "text": "Modal base: open/close, overlay click, Esc, focus first field",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t15-dod2",
           "text": "ProjectFormModal: name (required) + color choice",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t15-dod3",
           "text": "List-header ⋮ menu: rename / delete (with confirm)",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t15-dod4",
           "text": "Inbox cannot be renamed/deleted (menu items hidden)",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t15-dod5",
           "text": "Deleting active project returns to Inbox",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t15-dod6",
           "text": "npm run lint passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t15-dod7",
           "text": "npm test passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t15-dod8",
           "text": "npm run build succeeds",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t15-dod9",
           "text": "No DOM access in models/core/storage/utils",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t15-dod10",
           "text": "Code-link tags updated to real line ranges",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t15-dod11",
           "text": "Commit message proposed to user",
-          "completed": false
+          "completed": true
         }
       ]
     },
