@@ -45,66 +45,67 @@
     {
       "id": "todoui-t01",
       "text": "T01 · Set up npm + webpack with dev server",
-      "description": "Goal: npm init; install webpack, webpack-cli, webpack-dev-server, html-webpack-plugin, style-loader, css-loader; add dev/build scripts.\n\nDefinition of Done:\n- package.json with \"dev\" and \"build\" scripts\n- webpack.config.js: entry src/index.js, output dist/ (clean), HtmlWebpackPlugin(src/template.html), CSS loaders, devtool per mode\n- src/index.js imports a CSS file and logs boot\n- npm run dev serves the page with live reload\n- npm run build outputs dist/index.html + bundle\n- dist/ and node_modules/ ignored by git\n- npm run build succeeds\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: chore: set up webpack build with dev server and html template\n\nCode links: line ranges are estimates until the task is done.",
+      "description": "Goal: npm init; install webpack, webpack-cli, webpack-dev-server, html-webpack-plugin, style-loader, css-loader; add dev/build scripts.\n\nDefinition of Done:\n- package.json with \"dev\" and \"build\" scripts\n- webpack.config.js: entry src/index.js, output dist/ (clean), HtmlWebpackPlugin(src/template.html), CSS loaders, devtool per mode\n- src/index.js imports a CSS file and logs boot\n- npm run dev serves the page with live reload\n- npm run build outputs dist/index.html + bundle\n- dist/ and node_modules/ ignored by git\n- npm run build succeeds\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: chore: set up webpack build with dev server and html template\n\nCode links: verified line ranges.",
       "tags": [
         "stage-1-setup",
         "chore",
         "T01",
-        "package.json:1-30",
-        "webpack.config.js:1-40",
-        "src/index.js:1-10",
-        "src/template.html:1-20"
+        "package.json:1-18",
+        "webpack.config.js:1-38",
+        "src/index.js:1-3",
+        "src/template.html:1-13",
+        "src/styles/base.css:1-19"
       ],
       "priority": "Must",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "createdAt": 1794386838187,
       "order": 2000,
       "subtasks": [
         {
           "id": "t01-dod1",
           "text": "package.json with \"dev\" and \"build\" scripts",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t01-dod2",
           "text": "webpack.config.js: entry src/index.js, output dist/ (clean), HtmlWebpackPlugin(src/template.html), CSS loaders, devtool per mode",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t01-dod3",
           "text": "src/index.js imports a CSS file and logs boot",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t01-dod4",
           "text": "npm run dev serves the page with live reload",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t01-dod5",
           "text": "npm run build outputs dist/index.html + bundle",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t01-dod6",
           "text": "dist/ and node_modules/ ignored by git",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t01-dod7",
           "text": "npm run build succeeds",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t01-dod8",
           "text": "Code-link tags updated to real line ranges",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t01-dod9",
           "text": "Commit message proposed to user",
-          "completed": false
+          "completed": true
         }
       ]
     },

@@ -1,0 +1,18 @@
+{
+  "name": "todoui",
+  "version": "0.1.0",
+  "private": true,
+  "description": "TodoUI: a todo list app with projects, built with webpack, OOP and plain JavaScript.",
+  "scripts": {
+    "dev": "webpack serve --mode development",
+    "build": "webpack --mode production"
+  },
+  "devDependencies": {
+    "css-loader": "^7.1.5",
+    "html-webpack-plugin": "^5.6.8",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.112.2",
+    "webpack-cli": "^7.2.3",
+    "webpack-dev-server": "^6.1.0"
+  }
+}
