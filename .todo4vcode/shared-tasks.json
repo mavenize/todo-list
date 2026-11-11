@@ -930,70 +930,70 @@
         "stage-5-ui-layout",
         "feature",
         "T13",
-        "src/js/ui/dom.js:1-40",
-        "src/js/ui/App.js:1-120",
-        "src/index.js:1-50"
+        "src/js/ui/dom.js:1-58",
+        "src/js/ui/App.js:1-207",
+        "src/index.js:1-58"
       ],
       "priority": "Must",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "createdAt": 1794386838199,
       "order": 14000,
       "subtasks": [
         {
           "id": "t13-dod1",
           "text": "dom.js: el(tag, {class, attrs, on}, children), clear(node)",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t13-dod2",
           "text": "App: holds view state (active list/project, selected todo, search query)",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t13-dod3",
           "text": "App subscribes to \"state:changed\" and re-renders",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t13-dod4",
           "text": "Components receive data + callbacks; never import storage",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t13-dod5",
           "text": "index.js mounts App",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t13-dod6",
           "text": "npm run lint passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t13-dod7",
           "text": "npm test passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t13-dod8",
           "text": "npm run build succeeds",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t13-dod9",
           "text": "No DOM access in models/core/storage/utils",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t13-dod10",
           "text": "Code-link tags updated to real line ranges",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t13-dod11",
           "text": "Commit message proposed to user",
-          "completed": false
+          "completed": true
         }
       ]
     },
