@@ -1322,69 +1322,74 @@
         "stage-6-ui-features",
         "feature",
         "T18",
-        "src/js/ui/components/TodoDetailView.js:1-160",
-        "src/styles/todo-detail.css:1-120"
+        "src/js/ui/components/TodoDetailView.js:1-232",
+        "src/styles/todo-detail.css:1-119",
+        "src/js/ui/components/priorityField.js:1-45",
+        "src/styles/forms.css:1-132",
+        "src/js/ui/App.js:152-158",
+        "src/js/ui/App.js:354-388",
+        "src/styles/base.css:180-222"
       ],
       "priority": "Must",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "createdAt": 1794386838204,
       "order": 19000,
       "subtasks": [
         {
           "id": "t18-dod1",
           "text": "Shows title, completion check, star, due date, priority, project, description",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t18-dod2",
           "text": "Inline edits saved on change/blur",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t18-dod3",
           "text": "Move todo to another project via select",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t18-dod4",
           "text": "⋮ menu → Delete with confirm; pane clears afterwards",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t18-dod5",
           "text": "Placeholder when nothing is selected",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t18-dod6",
           "text": "npm run lint passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t18-dod7",
           "text": "npm test passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t18-dod8",
           "text": "npm run build succeeds",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t18-dod9",
           "text": "No DOM access in models/core/storage/utils",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t18-dod10",
           "text": "Code-link tags updated to real line ranges",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t18-dod11",
           "text": "Commit message proposed to user",
-          "completed": false
+          "completed": true
         }
       ]
     },

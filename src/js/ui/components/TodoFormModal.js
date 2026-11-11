@@ -1,9 +1,9 @@
-import { DEFAULT_PRIORITY, PRIORITY_LIST } from '../../utils/constants';
+import { DEFAULT_PRIORITY } from '../../utils/constants';
 import { el } from '../dom';
 import { Modal } from './Modal';
+import { priorityField } from './priorityField';
 
 const MAX_TITLE_LENGTH = 200;
-const PRIORITY_LABELS = Object.freeze({ low: 'Low', medium: 'Medium', high: 'High' });
 
 let formCount = 0;
 
@@ -92,7 +92,7 @@ export class TodoFormModal extends Modal {
               attrs: { id: ids.dueDate, name: 'dueDate', type: 'date' },
             }),
           ]),
-          this.#priorityField(),
+          priorityField(),
         ]),
         el('div', { class: 'field' }, [
           el('label', { class: 'field__label', attrs: { for: ids.project } }, 'Project'),
@@ -122,37 +122,6 @@ export class TodoFormModal extends Modal {
       ],
     );
     return this.#form;
-  }
-
-  /** Low / Medium / High as a segmented radio group, each with its priority color dot. */
-  #priorityField() {
-    return el('fieldset', { class: 'field' }, [
-      el('legend', { class: 'field__label' }, 'Priority'),
-      el(
-        'div',
-        { class: 'segmented' },
-        PRIORITY_LIST.map((priority) =>
-          el('label', { class: 'segmented__option' }, [
-            el('input', {
-              class: 'segmented__input',
-              attrs: {
-                type: 'radio',
-                name: 'priority',
-                value: priority,
-                checked: priority === DEFAULT_PRIORITY,
-              },
-            }),
-            el('span', { class: 'segmented__label' }, [
-              el('span', {
-                class: ['segmented__dot', `priority--${priority}`],
-                attrs: { 'aria-hidden': 'true' },
-              }),
-              PRIORITY_LABELS[priority] ?? priority,
-            ]),
-          ]),
-        ),
-      ),
-    ]);
   }
 
   #submit(event) {

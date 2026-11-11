@@ -42,7 +42,7 @@ src/
 ├── index.js                     # entry: wires Storage → ProjectManager → App UI
 ├── template.html                # 3-pane shell (HtmlWebpackPlugin template)
 ├── styles/                      # variables.css, base.css, layout.css, sidebar.css,
-│                                # todo-list.css, todo-detail.css, modal.css, menu.css
+│                                # todo-list.css, todo-detail.css, forms.css, modal.css, menu.css
 └── js/
     ├── models/                  # pure data classes (no DOM)
     │   ├── ChecklistItem.js
@@ -67,6 +67,7 @@ src/
     │       ├── ProjectFormModal.js
     │       ├── ConfirmModal.js  # confirm dialog (delete project / todo)
     │       ├── DropdownMenu.js  # ⋮ action menu (list header, detail pane)
+    │       ├── priorityField.js # Low/Medium/High picker (todo form, detail pane)
     │       └── TodoFormModal.js
     └── utils/
         ├── constants.js         # PRIORITIES, SMART_LISTS, STORAGE_KEY, colors

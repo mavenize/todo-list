@@ -51,36 +51,6 @@
   box-shadow: inset 3px 0 0 var(--color-accent);
 }
 
-/* Round checkbox; the ring color shows the priority. */
-.todo-item__check {
-  appearance: none;
-  display: grid;
-  place-items: center;
-  width: 1.75rem;
-  height: 1.75rem;
-  flex-shrink: 0;
-  margin: 0;
-  border: 2px solid var(--ring-color, var(--color-text-subtle));
-  border-radius: 50%;
-  background: var(--color-surface) no-repeat center / 70%;
-  cursor: pointer;
-  transition:
-    background-color var(--transition-fast),
-    border-color var(--transition-fast);
-}
-
-.todo-item__check:hover {
-  background-color: color-mix(in srgb, var(--ring-color) 12%, var(--color-surface));
-}
-
-.todo-item__check:checked {
-  border-color: var(--color-accent);
-  background-color: var(--color-accent);
-  /* White check mark (same path as the `check` icon). */
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5.5 12.5 4 4 9-9'/%3E%3C/svg%3E");
-  box-shadow: 0 4px 10px color-mix(in srgb, var(--color-accent) 35%, transparent);
-}
-
 /* Title + meta; the button fills the row so the whole middle is clickable. */
 .todo-item__main {
   display: flex;
@@ -137,17 +107,4 @@
   flex-shrink: 0;
   border-radius: 2px;
   background: var(--project-color, var(--color-text-muted));
-}
-
-/* Star: outline by default, filled when the todo is important. */
-.todo-item__star {
-  color: var(--color-text-subtle);
-}
-
-.todo-item__star[aria-pressed='true'] {
-  color: var(--color-star);
-}
-
-.todo-item__star[aria-pressed='true'] .icon {
-  fill: currentColor;
 }

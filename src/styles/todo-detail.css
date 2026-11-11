@@ -1,0 +1,119 @@
+/* Right pane: one todo's details, edited in place. */
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  max-width: 52rem;
+  padding: var(--space-8) var(--space-10);
+}
+
+.detail__header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.detail__check {
+  --check-size: 2.5rem;
+  margin-right: var(--space-2);
+}
+
+.detail__title-wrap {
+  flex: 1;
+  min-width: 0;
+}
+
+/* The title is a one-line textarea that grows with its text and looks like a heading. */
+.detail__title {
+  display: block;
+  width: 100%;
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background: transparent;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.35;
+  resize: none;
+  overflow: hidden;
+  field-sizing: content;
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.detail__title:hover {
+  background: var(--color-hover);
+}
+
+.detail__title:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  background: var(--color-surface);
+  box-shadow: 0 0 0 3px var(--color-accent-soft);
+}
+
+.detail__title-error {
+  margin: var(--space-1) var(--space-2) 0;
+}
+
+/* Due date, priority and project side by side; they wrap on narrow panes. */
+.detail__props {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  gap: var(--space-5);
+  padding-left: calc(2.5rem + var(--space-5));
+}
+
+.detail__props + .field {
+  padding-left: calc(2.5rem + var(--space-5));
+}
+
+/* Description: borderless until hovered or focused, grows with its text. */
+.detail__description {
+  width: 100%;
+  min-height: 6rem;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  line-height: 1.7;
+  resize: vertical;
+  field-sizing: content;
+  transition: border-color var(--transition-fast);
+}
+
+.detail__description:hover {
+  border-color: var(--color-border);
+}
+
+.detail__description:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  background: var(--color-surface);
+  box-shadow: 0 0 0 3px var(--color-accent-soft);
+}
+
+.detail__description::placeholder {
+  color: var(--color-text-subtle);
+}
+
+/* Placeholder when nothing is selected. */
+.detail-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  height: 100%;
+  padding: var(--space-8);
+  color: var(--color-text-subtle);
+  text-align: center;
+}
+
+.detail-empty__icon {
+  width: 3rem;
+  height: 3rem;
+  stroke-width: 1.25;
+}

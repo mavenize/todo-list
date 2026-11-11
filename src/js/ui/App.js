@@ -6,9 +6,9 @@ import { DropdownMenu } from './components/DropdownMenu';
 import { Header } from './components/Header';
 import { ProjectFormModal } from './components/ProjectFormModal';
 import { Sidebar } from './components/Sidebar';
+import { TodoDetailView } from './components/TodoDetailView';
 import { TodoFormModal } from './components/TodoFormModal';
 import { TodoListView } from './components/TodoListView';
-import { clear } from './dom';
 
 const VIEW_TYPES = Object.freeze({ SMART: 'smart', PROJECT: 'project' });
 const DEFAULT_VIEW = Object.freeze({ type: VIEW_TYPES.SMART, id: SMART_LISTS.OVERVIEW });
@@ -82,6 +82,7 @@ export class App {
   #unsubscribe = null;
   #sidebar = null;
   #listView = null;
+  #detailView = null;
 
   #activeView;
   #selectedTodoId = null;
@@ -147,6 +148,13 @@ export class App {
       onSelect: (todoId) => this.selectTodo(todoId),
       onToggleComplete: (todoId) => this.#manager.toggleTodoComplete(todoId),
       onToggleImportant: (todoId) => this.#manager.toggleTodoImportant(todoId),
+    });
+    this.#detailView = new TodoDetailView(this.#panes.detail, {
+      onUpdate: (todoId, fields) => this.#manager.updateTodo(todoId, fields),
+      onToggleComplete: (todoId) => this.#manager.toggleTodoComplete(todoId),
+      onToggleImportant: (todoId) => this.#manager.toggleTodoImportant(todoId),
+      onMove: (todoId, projectId) => this.#manager.moveTodo(todoId, projectId),
+      onDelete: (todoId) => this.#confirmDeleteTodo(todoId),
     });
     this.#unsubscribe = this.#bus.on(EVENTS.STATE_CHANGED, () => this.render());
     this.render();
@@ -343,9 +351,39 @@ export class App {
     });
   }
 
+  /** Asks before deleting; the selection is then cleared and the pane shows its placeholder. */
+  #confirmDeleteTodo(todoId) {
+    const found = this.#manager.findTodo(todoId);
+    if (!found) return;
+    new ConfirmModal({
+      title: 'Delete todo?',
+      message: `"${found.todo.title}" will be deleted. This can't be undone.`,
+      confirmLabel: 'Delete todo',
+      danger: true,
+      onConfirm: () => this.#manager.deleteTodo(todoId),
+    }).open();
+  }
+
   #renderDetail() {
-    // Placeholder until TodoDetailView (T18), which receives { todo, project, projects }
-    // and callbacks that call ProjectManager methods.
-    clear(this.#panes.detail);
+    if (!this.#detailView) return;
+    const found = this.#selectedTodoId ? this.#manager.findTodo(this.#selectedTodoId) : null;
+    if (!found) {
+      this.#detailView.render(null);
+      return;
+    }
+    const { todo, project } = found;
+    this.#detailView.render({
+      todo: {
+        id: todo.id,
+        title: todo.title,
+        description: todo.description,
+        dueDate: todo.dueDate,
+        priority: todo.priority,
+        completed: todo.completed,
+        important: todo.important,
+      },
+      projectId: project.id,
+      projects: this.#manager.projects.map(({ id, name }) => ({ id, name })),
+    });
   }
 }

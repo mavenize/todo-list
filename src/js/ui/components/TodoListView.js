@@ -85,7 +85,7 @@ export class TodoListView {
       },
       [
         el('input', {
-          class: ['todo-item__check', `priority--${priority}`],
+          class: ['check-ring', 'todo-item__check', `priority--${priority}`],
           attrs: {
             type: 'checkbox',
             checked: completed,
@@ -110,7 +110,7 @@ export class TodoListView {
         el(
           'button',
           {
-            class: 'icon-button todo-item__star',
+            class: 'icon-button star-toggle todo-item__star',
             attrs: {
               type: 'button',
               'aria-pressed': String(important),
