@@ -1,0 +1,9 @@
+dist/
+node_modules/
+coverage/
+package-lock.json
+.todo4vcode/
+TodosUI.png
+
+# Docs are hand-edited; Prettier only formats code.
+*.md

@@ -112,60 +112,61 @@
     {
       "id": "todoui-t02",
       "text": "T02 · Add ESLint + Prettier",
-      "description": "Goal: Flat-config ESLint (browser + node globals) with eslint-config-prettier; Prettier config; lint/format scripts.\n\nDefinition of Done:\n- eslint.config.js (flat) with recommended rules + prettier compat\n- .prettierrc and .prettierignore (dist, node_modules)\n- Scripts: lint, lint:fix, format\n- Existing files formatted and lint clean\n- npm run lint passes\n- npm run build succeeds\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: chore: add ESLint and Prettier configuration\n\nCode links: line ranges are estimates until the task is done.",
+      "description": "Goal: Flat-config ESLint (browser + node globals) with eslint-config-prettier; Prettier config; lint/format scripts.\n\nDefinition of Done:\n- eslint.config.js (flat) with recommended rules + prettier compat\n- .prettierrc and .prettierignore (dist, node_modules)\n- Scripts: lint, lint:fix, format\n- Existing files formatted and lint clean\n- npm run lint passes\n- npm run build succeeds\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: chore: add ESLint and Prettier configuration\n\nCode links: verified line ranges.",
       "tags": [
         "stage-1-setup",
         "chore",
         "T02",
-        "eslint.config.js:1-30",
-        ".prettierrc:1-10",
-        "package.json:1-40"
+        "eslint.config.js:1-38",
+        ".prettierrc:1-8",
+        ".prettierignore:1-9",
+        "package.json:6-13"
       ],
       "priority": "Must",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "createdAt": 1794386838188,
       "order": 3000,
       "subtasks": [
         {
           "id": "t02-dod1",
           "text": "eslint.config.js (flat) with recommended rules + prettier compat",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t02-dod2",
           "text": ".prettierrc and .prettierignore (dist, node_modules)",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t02-dod3",
           "text": "Scripts: lint, lint:fix, format",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t02-dod4",
           "text": "Existing files formatted and lint clean",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t02-dod5",
           "text": "npm run lint passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t02-dod6",
           "text": "npm run build succeeds",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t02-dod7",
           "text": "Code-link tags updated to real line ranges",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t02-dod8",
           "text": "Commit message proposed to user",
-          "completed": false
+          "completed": true
         }
       ]
     },

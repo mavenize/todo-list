@@ -5,11 +5,20 @@
   "description": "TodoUI: a todo list app with projects, built with webpack, OOP and plain JavaScript.",
   "scripts": {
     "dev": "webpack serve --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "css-loader": "^7.1.5",
+    "eslint": "^10.13.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.13.0",
     "html-webpack-plugin": "^5.6.8",
+    "prettier": "^3.9.10",
     "style-loader": "^4.0.0",
     "webpack": "^5.112.2",
     "webpack-cli": "^7.2.3",
