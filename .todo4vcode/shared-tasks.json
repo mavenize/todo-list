@@ -696,74 +696,74 @@
     {
       "id": "todoui-t10",
       "text": "T10 · StorageService",
-      "description": "Goal: Safe localStorage persistence with injected storage.\n\nDefinition of Done:\n- constructor(storage, key = STORAGE_KEY)\n- save(state) writes { version: 1, ...state }\n- load() returns null when missing, corrupt JSON, or unknown version (never throws)\n- clear()\n- Unit tests with a fake storage, incl. corrupt data and storage that throws\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: feat(storage): add localStorage persistence service\n\nCode links: line ranges are estimates until the task is done.",
+      "description": "Goal: Safe localStorage persistence with injected storage.\n\nDefinition of Done:\n- constructor(storage, key = STORAGE_KEY)\n- save(state) writes { version: 1, ...state }\n- load() returns null when missing, corrupt JSON, or unknown version (never throws)\n- clear()\n- Unit tests with a fake storage, incl. corrupt data and storage that throws\n- npm run lint passes\n- npm test passes\n- npm run build succeeds\n- No DOM access in models/core/storage/utils\n- Code-link tags updated to real line ranges\n- Commit message proposed to user\n\nCommit: feat(storage): add localStorage persistence service\n\nCode links: verified line ranges.",
       "tags": [
         "stage-4-persistence",
         "feature",
         "T10",
-        "src/js/storage/StorageService.js:1-60",
-        "tests/storage/StorageService.test.js:1-80"
+        "src/js/storage/StorageService.js:1-78",
+        "tests/storage/StorageService.test.js:1-163"
       ],
       "priority": "Must",
-      "status": "Todo",
-      "completed": false,
+      "status": "Done",
+      "completed": true,
       "createdAt": 1794386838196,
       "order": 11000,
       "subtasks": [
         {
           "id": "t10-dod1",
           "text": "constructor(storage, key = STORAGE_KEY)",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t10-dod2",
           "text": "save(state) writes { version: 1, ...state }",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t10-dod3",
           "text": "load() returns null when missing, corrupt JSON, or unknown version (never throws)",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t10-dod4",
           "text": "clear()",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t10-dod5",
           "text": "Unit tests with a fake storage, incl. corrupt data and storage that throws",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t10-dod6",
           "text": "npm run lint passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t10-dod7",
           "text": "npm test passes",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t10-dod8",
           "text": "npm run build succeeds",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t10-dod9",
           "text": "No DOM access in models/core/storage/utils",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t10-dod10",
           "text": "Code-link tags updated to real line ranges",
-          "completed": false
+          "completed": true
         },
         {
           "id": "t10-dod11",
           "text": "Commit message proposed to user",
-          "completed": false
+          "completed": true
         }
       ]
     },
